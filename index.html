@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./styles.css">
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>Intention Timer</title>
+</head>
+  <body>
+    <main>
+      <h1>Intention Timer</h1>
+      <section class="timer-section">
+        <form class="timer-container">
+          <h3>Select a category:</h3>
+          <section class="categories-icons">
+            <img src= "./assets/study.svg" alt="Study icon"/>
+            <img src= "./assets/meditate.svg" alt="Meditate icon"/>
+            <img src= "./assets/exercise.svg" alt="Exercise icon"/>
+          </section>
+          <section class="intention-container">
+              <h3>What would you like to accomplish during this time?</h3>
+              <label for="intentions">Intentions go here</label>
+              <input id="intentions" type="text"></input>
+          </section>
+          <section class="minutes-seconds-section">
+            <div class="minutes-container">
+              <label for="minutes">Main</label>
+              <input id="minutes" type="number"></input>
+            </div>
+            <div class="seconds-container">
+              <label for="seconds">Seconds</label>
+              <input id="seconds" type="number" name="seconds"></input>
+            </div>
+          </section>
+          </form>
+        </section>
+      <section class="past-activities-section">
+        <h3>Past Activities</h3>
+      </section>
+    </main>
+  </body>
+  <script type="text/javascript" src="main.js></script>
+</html>
