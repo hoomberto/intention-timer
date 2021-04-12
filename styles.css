@@ -1,0 +1,17 @@
+* {
+  border: blue solid 1px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 70% 30%;
+
+}
+
+.new-activity {
+  grid-column: 1;
+}
+
+.past-activity {
+  grid-column: 2;
+}
