@@ -4,53 +4,68 @@
   <link rel="stylesheet" href="./styles.css">
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <title>Intention Timer</title>
 </head>
   <body>
     <h1>Intention Timer</h1>
     <main>
+      <section class="current-activity hidden">
+      </section>
+      <section class="completed-activity hidden">
+      </section>
       <section class="new-activity">
-      <h2>New Activity:</h2>
-        <form class="timer-container">
-          <div id="header-icon-container">
-            <h3>Select a category:</h3>
-            <section class="categories-icons">
-              <div class="img-container">
-                <img src= "./assets/study.svg" alt="Study icon"/>
-                <p>Study</p>
+        <h2>New Activity:</h2>
+          <form class="timer-container">
+            <div id="header-icon-container">
+              <h3>Select a category:</h3>
+              <section class="categories-icons">
+                <div class="img-container">
+                  <img src= "./assets/study.svg" alt="Study icon"/>
+                  <p>Study</p>
+                </div>
+                <div class="img-container">
+                  <img src= "./assets/meditate.svg" alt="Meditate icon"/>
+                  <p>Meditate</p>
+                </div>
+                <div class="img-container">
+                  <img src= "./assets/exercise.svg" alt="Exercise icon"/>
+                  <p>Exercise</p>
+                </div>
+              </section>
+            </div>
+            <section class="intention-container">
+                <h3>What would you like to accomplish during this time?</h3>
+                <input class="user-input" id="intentions" type="text"></input>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A description is required.</p>
+            </section>
+            <section class="minutes-seconds-section">
+              <div class="minutes-container">
+                <label for="minutes">Minutes</label>
+                <input id="minutes" type="text"></input>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A description is required.</p>
               </div>
-              <div class="img-container">
-                <img src= "./assets/meditate.svg" alt="Meditate icon"/>
-                <p>Meditate</p>
-              </div>
-              <div class="img-container">
-                <img src= "./assets/exercise.svg" alt="Exercise icon"/>
-                <p>Exercise</p>
+              <div class="seconds-container">
+                <label for="seconds">Seconds</label>
+                <input id="seconds" type="text" name="seconds"></input>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A description is required.</p>
               </div>
             </section>
-          </div>
-          <section class="intention-container">
-              <h3>What would you like to accomplish during this time?</h3>
-              <input class="user-input" id="intentions" type="text"></input>
-          </section>
-          <section class="minutes-seconds-section">
-            <div class="minutes-container">
-              <label for="minutes">Minutes</label>
-              <input id="minutes" type="number"></input>
+            <div class="button-container">
+              <button>Start Activity</button>
             </div>
-            <div class="seconds-container">
-              <label for="seconds">Seconds</label>
-              <input id="seconds" type="number" name="seconds"></input>
-            </div>
-          </section>
-          <div class="button-container">
-            <button> </button>
-          </div>
-          </form>
+            </form>
         </section>
       <section class="past-activity">
         <h2>Past Activities</h2>
+        <section class="activity-cards">
+          <div class="no-activities-text">
+            <p>You haven't logged any activities yet.</p>
+            <p>Complete the form to the left to get started!</p>
+          </div>
+        </section>
+
       </section>
     </main>
   </body>
