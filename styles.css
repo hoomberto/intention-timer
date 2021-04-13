@@ -1,5 +1,9 @@
 * {
-  border: blue solid 1px;
+  /* border: blue solid 1px; */
+}
+
+body {
+  background-color: #46424D;
 }
 
 main {
@@ -19,13 +23,17 @@ form {
   padding-right: 8%;
   padding-top: 3%;
   padding-bottom: 3%;
-  background-color: #CBC9CF;
+  background-color: #46424D;
   justify-content: space-around;
+  height: 80vh;
+}
+.button-container{
+  display: flex;
+  justify-content: flex-end;
 }
 
 button {
   width: 100px;
-  /* justify-self: flex-end; */
   position: relative;
 }
 
@@ -34,6 +42,10 @@ button {
   padding: 1%;
   margin-right: 2px;
   background-color: #2B2733;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .past-activity {
