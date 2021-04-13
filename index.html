@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="./styles.css">
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <title>Intention Timer</title>
 </head>
   <body>
@@ -12,20 +13,30 @@
       <section class="new-activity">
       <h2>New Activity:</h2>
         <form class="timer-container">
-          <h3>Select a category:</h3>
-          <section class="categories-icons">
-            <img src= "./assets/study.svg" alt="Study icon"/>
-            <img src= "./assets/meditate.svg" alt="Meditate icon"/>
-            <img src= "./assets/exercise.svg" alt="Exercise icon"/>
-          </section>
+          <div id="header-icon-container">
+            <h3>Select a category:</h3>
+            <section class="categories-icons">
+              <div class="img-container">
+                <img src= "./assets/study.svg" alt="Study icon"/>
+                <p>Study</p>
+              </div>
+              <div class="img-container">
+                <img src= "./assets/meditate.svg" alt="Meditate icon"/>
+                <p>Meditate</p>
+              </div>
+              <div class="img-container">
+                <img src= "./assets/exercise.svg" alt="Exercise icon"/>
+                <p>Exercise</p>
+              </div>
+            </section>
+          </div>
           <section class="intention-container">
               <h3>What would you like to accomplish during this time?</h3>
-              <label for="intentions">Intentions go here</label>
-              <input id="intentions" type="text"></input>
+              <input class="user-input" id="intentions" type="text"></input>
           </section>
           <section class="minutes-seconds-section">
             <div class="minutes-container">
-              <label for="minutes">Main</label>
+              <label for="minutes">Minutes</label>
               <input id="minutes" type="number"></input>
             </div>
             <div class="seconds-container">
@@ -33,7 +44,9 @@
               <input id="seconds" type="number" name="seconds"></input>
             </div>
           </section>
-          <button> </button>
+          <div class="button-container">
+            <button> </button>
+          </div>
           </form>
         </section>
       <section class="past-activity">
