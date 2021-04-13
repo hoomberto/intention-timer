@@ -1,0 +1,57 @@
+* {
+  border: blue solid 1px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+img {
+  width: 80px;
+  height: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: #CBC9CF;
+  justify-content: space-around;
+}
+
+button {
+  width: 100px;
+  /* justify-self: flex-end; */
+  position: relative;
+}
+
+.new-activity {
+  grid-column: 1;
+  padding: 1%;
+  margin-right: 2px;
+  background-color: #2B2733;
+}
+
+.past-activity {
+  grid-column: 2;
+  background-color: #2B2733;
+}
+
+.categories-icons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.minutes-seconds-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.intention-container {
+  display: flex;
+  flex-direction: column;
+}
