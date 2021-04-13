@@ -80,6 +80,7 @@ button {
 .intention-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 h1 {
@@ -92,6 +93,18 @@ h2 {
 
 h3, p {
   margin: 0;
+}
+
+h3, label {
+  margin-bottom: 3%;
+}
+
+input {
+  background-color: #46424D;
+  border: 0px;
+  border-bottom: #FFF solid 1px;
+  margin-top: 3%;
+  /* height: 30px; */
 }
 
 .img-container {
