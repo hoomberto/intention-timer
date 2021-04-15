@@ -1,6 +1,6 @@
 * {
   /* border: blue solid 1px; */
-  color: #FFF;
+  /* color: #FFF; */
 }
 
 html {
@@ -39,6 +39,10 @@ form {
   box-shadow: 5px 10px 18px #26222D;
   margin-bottom: 2%;
   /* margin: 50px; */
+}
+
+form > h3 {
+  color: color: #CBC9CF;
 }
 
 .button-container{
@@ -169,6 +173,7 @@ h3, p {
 h3, label {
   margin-bottom: 3%;
   font-weight: 400;
+  color: #CBC9CF;
 }
 
 input {
@@ -199,10 +204,6 @@ input {
 .intention-container > input {
   font-size: 20px;
   color: #CBC9CF;
-}
-
-.hidden {
-  display: none;
 }
 
 .error {
@@ -237,6 +238,39 @@ input {
   font-weight: 700;
   font-size: 600%;
 }
+
+.img-styling {
+  border: 2px solid #CBC9CF;
+  border-radius: 4px;
+  color: #CBC9CF;
+}
+
+
+.study-active {
+  border: 2px solid #B3FD78;
+  border-radius: 4px;
+  color: #B3FD78;
+}
+
+.meditate-active {
+  border: 2px solid #C278FD;
+  border-radius: 4px;
+  color:  #C278FD;
+
+}
+
+.exercise-active {
+  border: 2px solid #FD8078;
+  border-radius: 4px;
+  color: #FD8078;
+
+}
+
+
+.hidden {
+  display: none;
+}
+
 /* .error::before {
     content: "";
     display: block;

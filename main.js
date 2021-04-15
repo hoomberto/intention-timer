@@ -4,7 +4,23 @@ var timerNumbers = document.querySelector('.timer-numbers')
 var timerCategory = document.querySelector('#actual-timer-container p')
 var startTimerButton = document.querySelector('.start-timer')
 
+var iconSection = document.querySelector("#categoriesIcons");
+var studySection = document.querySelector("#study");
+var meditateSection = document.querySelector("#meditate");
+var exerciseSection = document.querySelector("#exercise");
+
+var studyIcon = document.querySelector("#studyIcon");
+var meditateIcon = document.querySelector("#meditateIcon");
+var exerciseIcon = document.querySelector("#exerciseIcon");
+
+var activeStudyIcon = document.querySelector("#activeStudyIcon");
+var activeMeditateIcon = document.querySelector("#activeMeditateIcon");
+var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
+
+
 startTimerButton.addEventListener('click', startCountDown);
+
+iconSection.addEventListener("click", facilitateIconChange);
 
 //get input from user form
 // input.value
@@ -71,3 +87,58 @@ function formatUserTime(minutes, seconds) {
 function displayTime(minutes, seconds) {
   timerNumbers.innerText = `${minutes}:${seconds}`;
 }
+
+function displayIcons(icon1, icon2, icon3) {
+  icon1.classList.remove("hidden");
+  icon2.classList.remove("hidden");
+  icon3.classList.remove("hidden");
+}
+
+function hideIcons(icon1, icon2, icon3) {
+  icon1.classList.add("hidden");
+  icon2.classList.add("hidden");
+  icon3.classList.add("hidden");
+}
+
+
+function removeFromClassList(section, iconId) {
+  section.classList.remove(iconId);
+
+}
+
+function addToClassList(section, iconId) {
+  section.classList.add(iconId);
+}
+
+
+function facilitateIconChange() {
+  if (event.target.closest("#study")) {
+    hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
+    displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
+    addToClassList(studySection, "study-active")
+    removeFromClassList(meditateSection, "meditate-active");
+    removeFromClassList(exerciseSection, "exercise-active");
+  } else if (event.target.closest("#meditate")) {
+    hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
+    displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
+    addToClassList(meditateSection, "meditate-active");
+    removeFromClassList(studySection, "study-active");
+    removeFromClassList(exerciseSection, "exercise-active");
+  } else if (event.target.closest("#exercise")) {
+    hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
+    displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
+    addToClassList(exerciseSection, "exercise-active");
+    removeFromClassList(meditateSection, "meditate-active");
+    removeFromClassList(studySection, "study-active")
+  }
+}
+
+//single param functions
+
+// function hideIcon(iconType) {
+//   iconType.classList.add("hidden")
+// }
+//event handler for displaying the original svg
+// function displayIcon(iconType) {
+//   iconType.classList.remove("hidden")
+// }
