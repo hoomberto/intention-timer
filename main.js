@@ -55,3 +55,19 @@ function formatTime(time) {
   }
   displayTime(minutes, seconds);
 }
+
+function formatUserTime(minutes, seconds) {
+  var userMinutes = minutes;
+  var userSeconds = seconds;
+  if (minutes < 10) {
+    userMinutes = `0${minutes}`
+  }
+  if (seconds < 10) {
+    userSeconds = `0${seconds}`;
+  }
+  displayTime(userMinutes, userSeconds);
+}
+
+function displayTime(minutes, seconds) {
+  timerNumbers.innerText = `${minutes}:${seconds}`;
+}
