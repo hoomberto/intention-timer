@@ -20,6 +20,8 @@ var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
 
 startTimerButton.addEventListener('click', startCountDown);
 
+iconSection.addEventListener("click", facilitateIconChange);
+
 //get input from user form
 // input.value
 
