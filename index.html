@@ -5,17 +5,23 @@
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <title>Intention Timer</title>
 </head>
   <body>
-    <h1>Intention Timer</h1>
+    <section><h1>Intention Timer</h1></section>
     <main>
-      <section class="current-activity hidden">
+      <section class="current-activity">
+        <h2>Current Activity</h2>
+        <section class="timer-container" id="actual-timer-container">
+          <p>Deep Breathing</p>
+          <section class="timer-numbers">00:00</section>
+          <button class="start-timer">Start</button>
+        </section>
       </section>
       <section class="completed-activity hidden">
       </section>
-      <section class="new-activity">
+      <section class="new-activity hidden">
         <h2>New Activity:</h2>
           <form class="timer-container">
             <div id="header-icon-container">
@@ -69,5 +75,6 @@
       </section>
     </main>
   </body>
-  <script type="text/javascript" src="main.js></script>
+  <script type="text/javascript" src="Activity.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </html>
