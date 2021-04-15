@@ -51,6 +51,48 @@ function resetFields() {
  intentionsInput.value = "";
 }
 
+function validate(event) {
+  event.preventDefault()
+  var secondsValue = secondsInput.value;
+  var minutesValue = minutesInput.value;
+  var intentionsValue = intentionsInput.value;
+  // var categoryChecked = categoryInput.
+
+  if (secondsValue && minutesValue && intentionsValue ) {
+    // hideError 0 - this corresponds to the error outside of category icons div
+    hideError(1);
+    hideError(2);
+    hideError(3);
+
+    // Add code to push these values into their respective description, minutes, and seconds arguments
+    // as part of a new Activity instance.
+    // currentActivity = new Activity(secondsValue, minutesValue, intentionsValue, categoryChecked);
+
+    resetFields();
+    // Invoke function to hide form and display timer section
+    return
+  }
+  if (!intentionsValue) {
+    addError(1);
+    }
+  if (intentionsValue) {
+    hideError(1);
+  }
+  if (minutesValue) {
+    hideError(2);
+  }
+  if (!minutesValue) {
+    addError(2);
+  }
+  if (secondsValue) {
+    hideError(3);
+  }
+  if (!secondsValue) {
+    addError(3);
+  }
+  return
+}
+
 var currentActivity = {
   category: "Deep Breathing",
   minutes: 10,
