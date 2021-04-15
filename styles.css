@@ -228,6 +228,15 @@ input {
   margin-bottom: 2%;
   padding: 15%;
 }
+
+#actual-timer-container p{
+  font-size: 160%
+}
+
+.timer-numbers {
+  font-weight: 700;
+  font-size: 600%;
+}
 /* .error::before {
     content: "";
     display: block;
