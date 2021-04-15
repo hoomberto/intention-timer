@@ -17,9 +17,18 @@ var activeStudyIcon = document.querySelector("#activeStudyIcon");
 var activeMeditateIcon = document.querySelector("#activeMeditateIcon");
 var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
 
+var inputFields = document.querySelectorAll('input[name="field"]');
+var startActivityBtn = document.querySelector('.start-activity-btn');
+var errorMsg = document.querySelectorAll('.error');
+var intentionCtr = document.querySelector('.intention-container');
+var secondsInput = document.querySelector('#seconds');
+var minutesInput = document.querySelector('#minutes');
+var intentionsInput = document.querySelector('#intentions');
+
+// EVENT LISTENERS
 
 startTimerButton.addEventListener('click', startCountDown);
-
+startActivityBtn.addEventListener("click", validate);
 iconSection.addEventListener("click", facilitateIconChange);
 
 //get input from user form
