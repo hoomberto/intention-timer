@@ -77,7 +77,19 @@ button {
   padding: 33px;
   margin-right: 2px;
   background-color: #2B2733;
-  height: 84vh;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: 300;
+}
+
+.current-activity {
+  grid-column: 1;
+  padding: 33px;
+  margin-right: 2px;
+  background-color: #2B2733;
+  height: 87%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
