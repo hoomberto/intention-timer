@@ -26,3 +26,28 @@ function renderCurrentActivity() {
 }
 
 renderCurrentActivity();
+
+function countDown(minutes, seconds) {
+  var totalSeconds = (minutes * 60) + seconds;
+  var time = totalSeconds;
+  var counting = setInterval(function() {
+    time --;
+    formatTime(time);
+    if (time === 0) {
+      clearInterval(counting);
+      alert("The activity is complete")
+    }
+  }, 1000);
+}
+
+function formatTime(time) {
+  var minutes = Math.floor(time / 60);
+  var seconds = time % 60;
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  displayTime(minutes, seconds);
+}
