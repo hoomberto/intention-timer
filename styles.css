@@ -17,6 +17,7 @@ body {
 main {
   display: grid;
   grid-template-columns: 65% 35%;
+  height: 100vh;
 }
 
 img {
@@ -55,6 +56,20 @@ button {
   border: 0;
   outline: 0;
   color: #2B2733;
+}
+
+.start-timer {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  background: #46424D;
+  text-transform: uppercase;
+  font-size: 130%;
+  border-radius: 50%;
+  border: #C278FD 3px solid;
+  outline: 0;
+  color: #FFF;
+  margin-top: 4%;
 }
 
 .new-activity {
