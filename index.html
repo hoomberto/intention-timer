@@ -27,22 +27,23 @@
             <div id="headerIconContainer">
               <h3>Select a category:</h3>
               <section id="categoriesIcons" class="categories-icons">
-                <div id="study" class="img-styling img-container">
+                <div id="study" class="img-styling img-container" name="Study">
                   <img id="studyIcon" src= "./assets/study.svg" alt="Study icon"/>
                   <img id="activeStudyIcon" class="hidden" src= "./assets/study-active.svg" alt="Active study icon"/>
                   <p>Study</p>
                 </div>
-                <div id="meditate"class="img-container img-styling">
+                <div id="meditate"class="img-container img-styling" name="Meditate">
                   <img id="meditateIcon" src= "./assets/meditate.svg" alt="Meditate icon"/>
                   <img id="activeMeditateIcon" class="hidden" src= "./assets/meditate-active.svg" alt="Active meditate icon"/>
                   <p>Meditate</p>
                 </div>
-                <div id="exercise" class="img-container img-styling">
+                <div id="exercise" class="img-container img-styling" name="Exercise">
                   <img id="exerciseIcon" src= "./assets/exercise.svg" alt="Exercise icon"/>
                   <img id="activeExerciseIcon" class="hidden" src= "./assets/exercise-active.svg" alt="Active exercise icon"/>
                   <p>Exercise</p>
                 </div>
               </section>
+              <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A category is required.</p>
             </div>
             <section class="intention-container">
                 <h3>What would you like to accomplish during this time?</h3>
@@ -53,16 +54,16 @@
               <div class="minutes-container">
                 <label for="minutes">Minutes</label>
                 <input id="minutes" type="text"></input>
-                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A description is required.</p>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A number is required.</p>
               </div>
               <div class="seconds-container">
                 <label for="seconds">Seconds</label>
                 <input id="seconds" type="text" name="seconds"></input>
-                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A description is required.</p>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A number is required.</p>
               </div>
             </section>
             <div class="button-container">
-              <button>Start Activity</button>
+              <button class="start-activity-btn" type="button">Start Activity</button>
             </div>
             </form>
         </section>

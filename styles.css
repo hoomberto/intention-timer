@@ -266,6 +266,9 @@ input {
 
 }
 
+/* .active {
+  visibility: visible;
+} */
 
 .hidden {
   display: none;
