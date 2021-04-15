@@ -37,6 +37,20 @@ iconSection.addEventListener("click", facilitateIconChange);
 
 // var currentActivity = new Activity(category, description, minutes, seconds);
 
+function addError(msgIndex) {
+  errorMsg[msgIndex].classList.remove("hidden");
+}
+
+function hideError(msgIndex) {
+  errorMsg[msgIndex].classList.add("hidden");
+}
+
+function resetFields() {
+ secondsInput.value = "";
+ minutesInput.value = "";
+ intentionsInput.value = "";
+}
+
 var currentActivity = {
   category: "Deep Breathing",
   minutes: 10,
