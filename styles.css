@@ -239,6 +239,34 @@ input {
   font-size: 600%;
 }
 
+.img-styling {
+  border: 2px solid #CBC9CF;
+  border-radius: 4px;
+  color: #CBC9CF;
+}
+
+
+.study-active {
+  border: 2px solid #B3FD78;
+  border-radius: 4px;
+  color: #B3FD78;
+}
+
+.meditate-active {
+  border: 2px solid #C278FD;
+  border-radius: 4px;
+  color:  #C278FD;
+
+}
+
+.exercise-active {
+  border: 2px solid #FD8078;
+  border-radius: 4px;
+  color: #FD8078;
+
+}
+
+
 .hidden {
   display: none;
 }
