@@ -27,6 +27,10 @@ function renderCurrentActivity() {
 
 renderCurrentActivity();
 
+function startCountDown() {
+  countDown(currentActivity.minutes, currentActivity.seconds);
+}
+
 function countDown(minutes, seconds) {
   var totalSeconds = (minutes * 60) + seconds;
   var time = totalSeconds;
