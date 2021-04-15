@@ -19,3 +19,10 @@ var currentActivity = {
 }
 
 var savedActivities;
+
+function renderCurrentActivity() {
+  timerCategory.innerText = currentActivity.category;
+  formatUserTime(currentActivity.minutes, currentActivity.seconds);
+}
+
+renderCurrentActivity();
