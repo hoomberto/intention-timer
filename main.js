@@ -20,6 +20,7 @@ var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
 var inputFields = document.querySelectorAll('input[name="field"]');
 var startActivityBtn = document.querySelector('.start-activity-btn');
 var errorMsg = document.querySelectorAll('.error');
+var iconCtrs = document.querySelectorAll('.img-container');
 var intentionCtr = document.querySelector('.intention-container');
 var secondsInput = document.querySelector('#seconds');
 var minutesInput = document.querySelector('#minutes');
@@ -57,6 +58,21 @@ function validate(event) {
   var minutesValue = minutesInput.value;
   var intentionsValue = intentionsInput.value;
   // var categoryChecked = categoryInput.
+  //
+  var activeCount = 0;
+  for (var icon of iconCtrs) {
+    if (icon.classList.contains("active")) {
+      hideError(0)
+      break
+    }
+    else {
+      activeCount++
+      if (activeCount === 3) {
+      addError(0);
+    }
+  }
+}
+
 
   if (secondsValue && minutesValue && intentionsValue ) {
     // hideError 0 - this corresponds to the error outside of category icons div
@@ -181,20 +197,29 @@ function facilitateIconChange() {
     hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
     displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
     addToClassList(studySection, "study-active")
+    addToClassList(studySection, "active");
     removeFromClassList(meditateSection, "meditate-active");
     removeFromClassList(exerciseSection, "exercise-active");
+    removeFromClassList(meditateSection, "active");
+    removeFromClassList(exerciseSection, "active");
   } else if (event.target.closest("#meditate")) {
     hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
     displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
     addToClassList(meditateSection, "meditate-active");
+    addToClassList(meditateSection, "active");
     removeFromClassList(studySection, "study-active");
     removeFromClassList(exerciseSection, "exercise-active");
+    removeFromClassList(studySection, "active");
+    removeFromClassList(exerciseSection, "active");
   } else if (event.target.closest("#exercise")) {
     hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
     displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
     addToClassList(exerciseSection, "exercise-active");
+    addToClassList(exerciseSection, "active");
     removeFromClassList(meditateSection, "meditate-active");
     removeFromClassList(studySection, "study-active")
+    removeFromClassList(meditateSection, "active");
+    removeFromClassList(studySection, "active")
   }
 }
 
