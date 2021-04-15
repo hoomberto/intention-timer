@@ -4,6 +4,20 @@ var timerNumbers = document.querySelector('.timer-numbers')
 var timerCategory = document.querySelector('#actual-timer-container p')
 var startTimerButton = document.querySelector('.start-timer')
 
+var iconSection = document.querySelector("#categoriesIcons");
+var studySection = document.querySelector("#study");
+var meditateSection = document.querySelector("#meditate");
+var exerciseSection = document.querySelector("#exercise");
+
+var studyIcon = document.querySelector("#studyIcon");
+var meditateIcon = document.querySelector("#meditateIcon");
+var exerciseIcon = document.querySelector("#exerciseIcon");
+
+var activeStudyIcon = document.querySelector("#activeStudyIcon");
+var activeMeditateIcon = document.querySelector("#activeMeditateIcon");
+var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
+
+
 startTimerButton.addEventListener('click', startCountDown);
 
 //get input from user form
