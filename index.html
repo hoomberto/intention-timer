@@ -24,19 +24,22 @@
       <section class="new-activity hidden">
         <h2>New Activity:</h2>
           <form class="timer-container">
-            <div id="header-icon-container">
+            <div id="headerIconContainer">
               <h3>Select a category:</h3>
-              <section class="categories-icons">
-                <div class="img-container">
-                  <img src= "./assets/study.svg" alt="Study icon"/>
+              <section id="categoriesIcons" class="categories-icons">
+                <div id="study" class="img-styling img-container">
+                  <img id="studyIcon" src= "./assets/study.svg" alt="Study icon"/>
+                  <img id="activeStudyIcon" class="hidden" src= "./assets/study-active.svg" alt="Active study icon"/>
                   <p>Study</p>
                 </div>
-                <div class="img-container">
-                  <img src= "./assets/meditate.svg" alt="Meditate icon"/>
+                <div id="meditate"class="img-container img-styling">
+                  <img id="meditateIcon" src= "./assets/meditate.svg" alt="Meditate icon"/>
+                  <img id="activeMeditateIcon" class="hidden" src= "./assets/meditate-active.svg" alt="Active meditate icon"/>
                   <p>Meditate</p>
                 </div>
-                <div class="img-container">
-                  <img src= "./assets/exercise.svg" alt="Exercise icon"/>
+                <div id="exercise" class="img-container img-styling">
+                  <img id="exerciseIcon" src= "./assets/exercise.svg" alt="Exercise icon"/>
+                  <img id="activeExerciseIcon" class="hidden" src= "./assets/exercise-active.svg" alt="Active exercise icon"/>
                   <p>Exercise</p>
                 </div>
               </section>
