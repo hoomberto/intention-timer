@@ -234,6 +234,7 @@ input {
   box-shadow: 5px 10px 18px #26222D;
   margin-bottom: 2%;
   padding: 15%;
+  color: #FFF;
 }
 
 #actual-timer-container p{
