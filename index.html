@@ -5,6 +5,7 @@
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   <title>Intention Timer</title>
 </head>
@@ -14,13 +15,19 @@
       <section class="current-activity hidden">
         <h2>Current Activity</h2>
         <section class="timer-container" id="actual-timer-container">
-          <p>Deep Breathing</p>
-          <section class="timer-numbers">00:00</section>
+          <div class="timer-header">
+            <p>Deep Breathing</p>
+            <section class="timer-numbers">00:00</section>
+          </div>
           <button class="start-timer">Start</button>
-          <button id="logActivity" class="log-activity invisibility">LOG  ACTIVITY</button>
+          <button id="logActivity" class="log-activity invisibility">LOG ACTIVITY</button>
         </section>
       </section>
       <section class="completed-activity hidden">
+        <h2>Completed Activity</h2>
+        <section class="completed-activity-container">
+          <button class="create-new-activity">CREATE A NEW ACTIVITY</button>
+        </section>
       </section>
       <section class="new-activity">
         <h2>New Activity:</h2>
