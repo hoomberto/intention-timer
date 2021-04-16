@@ -4,6 +4,8 @@ var timerNumbers = document.querySelector('.timer-numbers')
 var timerCategory = document.querySelector('#actual-timer-container p')
 var startTimerButton = document.querySelector('.start-timer')
 
+var completedActivityView = document.querySelector('.completed-activity');
+
 var iconSection = document.querySelector("#categoriesIcons");
 var studySection = document.querySelector("#study");
 var meditateSection = document.querySelector("#meditate");
@@ -34,6 +36,7 @@ var logActivityButton = document.querySelector("#logActivity");
 startTimerButton.addEventListener('click', startCountDown);
 startActivityBtn.addEventListener("click", validate);
 iconSection.addEventListener("click", facilitateIconChange);
+logActivityButton.addEventListener('click', logActivity)
 
 //get input from user form
 // input.value
@@ -43,6 +46,12 @@ var currentActivity = {};
 // var currentActivity = new Activity(category, description, minutes, seconds);
 
 var savedActivities;
+
+function logActivity() {
+  completedActivityView.classList.remove('hidden');
+  currentView.classList.add('hidden');
+
+}
 
 function renderCurrentActivity() {
   timerCategory.innerText = currentActivity.description;
@@ -61,7 +70,7 @@ function countDown(minutes, seconds) {
   var counting = setInterval(function() {
     time --;
     formatTime(time);
-    if (time === 0) {
+    if (time <= 0) {
       clearInterval(counting);
       //alert("The activity is complete")
       completeCountdown();

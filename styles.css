@@ -95,7 +95,8 @@ button {
   font-weight: 300;
 }
 
-.current-activity {
+.current-activity,
+.completed-activity {
   grid-column: 1;
   padding: 33px;
   margin-right: 2px;
@@ -225,7 +226,8 @@ input {
   float: left;
 }
 
-#actual-timer-container {
+#actual-timer-container,
+.completed-activity-container {
   display: flex;
   flex-direction: column;
   background-color: #46424D;
@@ -237,6 +239,15 @@ input {
   color: #FFF;
   justify-content: space-around;
   align-items: center;
+}
+
+.completed-activity-container {
+  justify-content: flex-start;
+}
+
+.create-new-activity {
+  margin-top: 4%;
+  width: 30%;
 }
 
 .timer-header p{
