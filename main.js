@@ -27,6 +27,8 @@ var secondsInput = document.querySelector('#seconds');
 var minutesInput = document.querySelector('#minutes');
 var intentionsInput = document.querySelector('#intentions');
 
+var logActivityButton = document.querySelector("#logActivity");
+
 // EVENT LISTENERS
 
 startTimerButton.addEventListener('click', startCountDown);
@@ -50,6 +52,7 @@ function renderCurrentActivity() {
 
 function startCountDown() {
   countDown(currentActivity.minutes, currentActivity.seconds);
+  startTimerButton.disabled = true;
 }
 
 function countDown(minutes, seconds) {
@@ -60,9 +63,15 @@ function countDown(minutes, seconds) {
     formatTime(time);
     if (time === 0) {
       clearInterval(counting);
-      alert("The activity is complete")
+      //alert("The activity is complete")
+      completeCountdown();
     }
   }, 1000);
+}
+
+function completeCountdown() {
+  startTimerButton.innerText = "COMPLETE!";
+  logActivityButton.classList.remove("invisibility");
 }
 
 function formatTime(time) {
@@ -119,6 +128,7 @@ function validateIcons() {
       activeCount++
       if (activeCount === 3) {
       addError(0);
+      break;
       }
     }
   }
@@ -133,17 +143,14 @@ function validate(event) {
   var parsedMinutes = parseInt(minutesValue);
 
   var icon = validateIcons();
-  console.log(icon.getAttribute("name"))
 
   if (secondsValue && minutesValue && intentionsValue && icon) {
     hideError(0);
     hideError(1);
     hideError(2);
     hideError(3);
-    alert("WORKING")
 
     currentActivity = new Activity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
-    console.log(currentActivity);
     resetFields();
     currentView.classList.remove("hidden");
     newActivitySection.classList.add("hidden");
