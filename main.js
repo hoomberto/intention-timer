@@ -71,7 +71,7 @@ function countDown(minutes, seconds) {
 
 function completeCountdown() {
   startTimerButton.innerText = "COMPLETE!";
-  logActivityButton.classList.remove("hidden");
+  logActivityButton.classList.remove("invisibility");
 }
 
 function formatTime(time) {
