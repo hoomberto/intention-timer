@@ -50,6 +50,7 @@ function renderCurrentActivity() {
 
 function startCountDown() {
   countDown(currentActivity.minutes, currentActivity.seconds);
+  startTimerButton.disabled = true;
 }
 
 function countDown(minutes, seconds) {
@@ -119,6 +120,7 @@ function validateIcons() {
       activeCount++
       if (activeCount === 3) {
       addError(0);
+      break;
       }
     }
   }
@@ -133,17 +135,14 @@ function validate(event) {
   var parsedMinutes = parseInt(minutesValue);
 
   var icon = validateIcons();
-  console.log(icon.getAttribute("name"))
 
   if (secondsValue && minutesValue && intentionsValue && icon) {
     hideError(0);
     hideError(1);
     hideError(2);
     hideError(3);
-    alert("WORKING")
 
     currentActivity = new Activity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
-    console.log(currentActivity);
     resetFields();
     currentView.classList.remove("hidden");
     newActivitySection.classList.add("hidden");
