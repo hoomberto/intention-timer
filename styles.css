@@ -63,8 +63,8 @@ button {
 }
 
 .start-timer {
-  width: 250px;
-  height: 250px;
+  width: 290px;
+  height: 290px;
   position: relative;
   background: #46424D;
   text-transform: uppercase;
@@ -73,7 +73,7 @@ button {
   border: #C278FD 3px solid;
   outline: 0;
   color: #FFF;
-  margin-top: 4%;
+  margin-top: -7%;
 }
 
 .start-timer:hover {
@@ -225,21 +225,23 @@ input {
 }
 
 #actual-timer-container {
-  align-items: center;
   display: flex;
   flex-direction: column;
   background-color: #46424D;
-  height: 68%;
+  height: 85%;
   border-radius: 4px;
   box-shadow: 5px 10px 18px #26222D;
   margin-bottom: 2%;
-  padding: 7%;
+  padding: 2%;
   color: #FFF;
   justify-content: space-around;
+  align-items: center;
 }
 
-#actual-timer-container p{
-  font-size: 160%
+.timer-header p{
+  font-size: 160%;
+  text-align: center;
+  color: #CBC9CF;
 }
 
 .invisibility {
@@ -249,6 +251,12 @@ input {
 .timer-numbers {
   font-weight: 700;
   font-size: 600%;
+  font-family: 'Roboto', sans-serif;
+}
+
+#logActivity {
+  width: 33%;
+  font-size: 1.1em;
 }
 
 .img-styling {
