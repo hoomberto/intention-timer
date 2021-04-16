@@ -9,7 +9,7 @@ class Activity {
   }
 
   countdown() {
-
+      console.log("Toad Noises");
   }
 
   markComplete() {
