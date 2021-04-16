@@ -76,6 +76,12 @@ button {
   margin-top: 4%;
 }
 
+.start-timer:hover {
+  background-color: #3e3b45;
+  cursor: pointer;
+
+}
+
 .new-activity {
   grid-column: 1;
   padding: 33px;
