@@ -27,6 +27,8 @@ var secondsInput = document.querySelector('#seconds');
 var minutesInput = document.querySelector('#minutes');
 var intentionsInput = document.querySelector('#intentions');
 
+var logActivityButton = document.querySelector("#logActivity");
+
 // EVENT LISTENERS
 
 startTimerButton.addEventListener('click', startCountDown);
@@ -61,9 +63,15 @@ function countDown(minutes, seconds) {
     formatTime(time);
     if (time === 0) {
       clearInterval(counting);
-      alert("The activity is complete")
+      //alert("The activity is complete")
+      completeCountdown();
     }
   }, 1000);
+}
+
+function completeCountdown() {
+  startTimerButton.innerText = "COMPLETE!";
+  logActivityButton.classList.remove("hidden");
 }
 
 function formatTime(time) {
