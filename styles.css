@@ -112,6 +112,8 @@ button {
   grid-column: 2;
   background-color: #2B2733;
   padding: 33px;
+  display: flex;
+  flex-direction: column;
 }
 
 .activity-cards {
@@ -120,6 +122,56 @@ button {
   align-items: center;
   padding: 3%;
   margin-right: 2px;
+}
+
+.past-activity-card {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  height: 100px;
+  width: 100%;
+  background-color: #46424D;
+  box-shadow: 5px 10px 18px #26222D;
+  /* border-right: 4px dashed green; */
+  border-radius: 4px;
+  color: #CBC9CF;
+}
+
+.past-activity-card * {
+  margin-left: 2%;
+}
+
+.past-activity-card h6 p {
+  margin-bottom: 0;
+}
+
+h5 {
+  margin: 0;
+}
+
+h6 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-top: -4%;
+  margin-bottom: 0;
+}
+
+.card-border {
+  border: 4px solid red;
+  background-color: red;
+  border-radius: 4px;
+  width: 1px;
+  height: 30%;
+  margin-right: 2%;
+  margin-top: 2%;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 75%;
 }
 
 .no-activities-text {
