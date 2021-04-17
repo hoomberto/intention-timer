@@ -80,6 +80,7 @@ function timerCountDown(minutes, seconds) {
 function completeCountdown() {
   startTimerButton.innerText = "COMPLETE!";
   logActivityButton.classList.remove("invisibility");
+  currentActivity.markComplete();
 }
 
 function formatTime(time) {
