@@ -93,6 +93,9 @@ function renderPastActivities() {
 
 function renderCurrentActivity() {
   timerCategory.innerText = currentActivity.description;
+  console.log(currentActivity);
+  console.log(startTimerButton);
+  startTimerButton.classList.add(`${currentActivity.category}`)
   formatUserTime(currentActivity.minutes, currentActivity.seconds);
 }
 
@@ -230,16 +233,6 @@ function validate(event) {
   }
   return
 }
-
-
-
-// {
-//   category: "Deep Breathing",
-//   minutes: 10,
-//   seconds: 2
-// }
-
-
 
 function displayIcons(icon1, icon2, icon3) {
   icon1.classList.remove("hidden");
