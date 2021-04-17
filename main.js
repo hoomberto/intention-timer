@@ -34,10 +34,12 @@ var pastActivitiesCards = document.querySelector(".activity-cards");
 
 // EVENT LISTENERS
 
+window.onload = renderPastActivities();
 startTimerButton.addEventListener('click', startCountDown);
 startActivityBtn.addEventListener("click", validate);
 iconSection.addEventListener("click", facilitateIconChange);
 logActivityButton.addEventListener('click', logActivity);
+
 
 //get input from user form
 // input.value
