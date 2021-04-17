@@ -30,13 +30,14 @@ var minutesInput = document.querySelector('#minutes');
 var intentionsInput = document.querySelector('#intentions');
 
 var logActivityButton = document.querySelector("#logActivity");
+var pastActivitiesCards = document.querySelector(".activity-cards");
 
 // EVENT LISTENERS
 
 startTimerButton.addEventListener('click', startCountDown);
 startActivityBtn.addEventListener("click", validate);
 iconSection.addEventListener("click", facilitateIconChange);
-logActivityButton.addEventListener('click', logActivity)
+logActivityButton.addEventListener('click', logActivity);
 
 //get input from user form
 // input.value
@@ -50,7 +51,29 @@ var savedActivities;
 function logActivity() {
   completedActivityView.classList.remove('hidden');
   currentView.classList.add('hidden');
+  currentActivity.saveToStorage();
+  renderPastActivities();
+}
 
+function renderPastActivities() {
+  var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
+  pastActivitiesCards.innerHTML = "";
+  for (var activity of parsedActivities) {
+    pastActivitiesCards.innerHTML +=
+    `
+      <div class="past-activity-card">
+        <div class="card-border">
+        </div>
+        <div class="card-text">
+          <h5>${activity.category}</h5>
+          <h6>${activity.minutes}</h6>
+          <p>${activity.description}</p>
+        </div>
+      </div>
+
+    `
+
+  }
 }
 
 function renderCurrentActivity() {
@@ -75,6 +98,12 @@ function timerCountDown(minutes, seconds) {
       completeCountdown();
     }
   }, 1000);
+}
+
+function resetStorage() {
+  var resetActivities = [];
+  var strActivities = JSON.stringify(resetActivities);
+  localStorage.setItem("pastActivities", strActivities);
 }
 
 function completeCountdown() {
