@@ -9,15 +9,22 @@ class Activity {
   }
 
   countdown() {
-      console.log("Toad Noises");
+    console.log("Toad Noises");
+    timerCountDown(currentActivity.minutes, currentActivity.seconds);
+    startTimerButton.disabled = true;
   }
 
   markComplete() {
-
+    this.completed = true;
   }
 
   saveToStorage() {
-
+    if (!localStorage.getItem("pastActivities")) {
+      resetStorage()
+    }
+    var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"))
+    parsedActivities.push(this);
+    localStorage.setItem("pastActivities", JSON.stringify(parsedActivities))
 
   }
 }
