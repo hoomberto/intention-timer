@@ -51,6 +51,7 @@ function displayNewActivity() {
 function logActivity() {
   completedActivityView.classList.remove('hidden');
   currentView.classList.add('hidden');
+
   currentActivity.saveToStorage();
   renderPastActivities();
 }
@@ -96,7 +97,11 @@ function renderCurrentActivity() {
   console.log(currentActivity);
   console.log(startTimerButton);
   startTimerButton.classList.add(`${currentActivity.category}`)
+  startTimerButton.innerText = "START!";
+  startTimerButton.disabled = false;
+  logActivityButton.classList.add("invisibility");
   formatUserTime(currentActivity.minutes, currentActivity.seconds);
+
 }
 
 
