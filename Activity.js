@@ -9,7 +9,9 @@ class Activity {
   }
 
   countdown() {
-      console.log("Toad Noises");
+    console.log("Toad Noises");
+    timerCountDown(currentActivity.minutes, currentActivity.seconds);
+    startTimerButton.disabled = true;
   }
 
   markComplete() {

@@ -60,11 +60,10 @@ function renderCurrentActivity() {
 
 
 function startCountDown() {
-  countDown(currentActivity.minutes, currentActivity.seconds);
-  startTimerButton.disabled = true;
+  currentActivity.countdown();
 }
 
-function countDown(minutes, seconds) {
+function timerCountDown(minutes, seconds) {
   var totalSeconds = (minutes * 60) + seconds;
   var time = totalSeconds;
   var counting = setInterval(function() {
