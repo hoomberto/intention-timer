@@ -58,13 +58,17 @@ function logActivity() {
 }
 
 function renderPastActivities() {
+  if (!localStorage.getItem("pastActivities")) {
+    resetStorage()
+  }
   var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
+  console.log(parsedActivities)
   pastActivitiesCards.innerHTML = "";
   for (var activity of parsedActivities) {
     pastActivitiesCards.innerHTML +=
     `
       <div class="past-activity-card">
-        <div class="card-border">
+        <div class="card-border ${activity.category}">
         </div>
         <div class="card-text">
           <h5>${activity.category}</h5>
@@ -72,7 +76,6 @@ function renderPastActivities() {
           <p>${activity.description}</p>
         </div>
       </div>
-
     `
 
   }

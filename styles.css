@@ -168,17 +168,17 @@ h6 {
   margin-top: 2%;
 }
 
-.card-border .study-pill {
+.study {
   border: 4px solid #B3FD78;
   background-color: #B3FD78;
 }
 
-.card-border .meditate-pill {
+.meditate {
   border: 4px solid #C278FD;
   background-color: #C278FD;
 }
 
-.card-border .exercise-pill {
+.exercise {
   border: 4px solid #FD8078;
   background-color: #FD8078;
 }
