@@ -11,7 +11,7 @@ body {
   background-color: #46424D;
   margin: 0;
   height: auto;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
 }
 
 main {
@@ -114,6 +114,7 @@ button {
   padding: 33px;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .activity-cards {
