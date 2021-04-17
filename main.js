@@ -31,7 +31,7 @@ var intentionsInput = document.querySelector('#intentions');
 
 var logActivityButton = document.querySelector("#logActivity");
 var pastActivitiesCards = document.querySelector(".activity-cards");
-
+var createNewActivityButton = document.querySelector('.create-new-activity');
 // EVENT LISTENERS
 
 window.onload = renderPastActivities();
@@ -39,20 +39,19 @@ startTimerButton.addEventListener('click', startCountDown);
 startActivityBtn.addEventListener("click", validate);
 iconSection.addEventListener("click", facilitateIconChange);
 logActivityButton.addEventListener('click', logActivity);
-
-
-//get input from user form
-// input.value
+createNewActivityButton.addEventListener('click', displayNewActivity);
 
 var currentActivity = {};
 
-// var currentActivity = new Activity(category, description, minutes, seconds);
-
-var savedActivities;
+function displayNewActivity() {
+  completedActivityView.classList.add('hidden');
+  newActivitySection.classList.remove('hidden');
+}
 
 function logActivity() {
   completedActivityView.classList.remove('hidden');
   currentView.classList.add('hidden');
+
   currentActivity.saveToStorage();
   renderPastActivities();
 }
@@ -95,7 +94,14 @@ function renderPastActivities() {
 
 function renderCurrentActivity() {
   timerCategory.innerText = currentActivity.description;
+  console.log(currentActivity);
+  console.log(startTimerButton);
+  startTimerButton.classList.add(`${currentActivity.category}`)
+  startTimerButton.innerText = "START!";
+  startTimerButton.disabled = false;
+  logActivityButton.classList.add("invisibility");
   formatUserTime(currentActivity.minutes, currentActivity.seconds);
+
 }
 
 
@@ -232,16 +238,6 @@ function validate(event) {
   }
   return
 }
-
-
-
-// {
-//   category: "Deep Breathing",
-//   minutes: 10,
-//   seconds: 2
-// }
-
-
 
 function displayIcons(icon1, icon2, icon3) {
   icon1.classList.remove("hidden");

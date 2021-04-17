@@ -22,7 +22,6 @@ main {
 
 img {
   width: 20px;
-  /* height: 20px; */
 }
 
 form {
@@ -60,6 +59,7 @@ button {
   border: 0;
   outline: 0;
   color: #2B2733;
+  cursor: pointer;
 }
 
 .start-timer {
@@ -75,12 +75,7 @@ button {
   color: #FFF;
   margin-top: -7%;
   margin-bottom: -5%;
-}
-
-.start-timer:hover {
-  background-color: #3e3b45;
   cursor: pointer;
-
 }
 
 .new-activity {
@@ -219,12 +214,6 @@ h6 {
 
 }
 
-.minutes-container, .seconds-container label {
-  font-size: 20px;
-  font-weight: 400;
-}
-
-
 .intention-container {
   display: flex;
   flex-direction: column;
@@ -287,6 +276,7 @@ input {
 
 .error {
   color: #EFB7EC;
+  margin-top: 2%;
 }
 
 .error-icon {
@@ -369,6 +359,24 @@ input {
 
 }
 
+.start-timer.study {
+  border: 3px solid #B3FD78;
+  background-color: #46424D;
+}
+
+.start-timer.meditate {
+  border: 3px solid #C278FD;
+  background-color: #46424D;
+}
+
+.start-timer.exercise {
+  border: 3px solid #FD8078;
+  background-color: #46424D;
+}
+
+.start-timer:hover {
+  background-color: #3e3b45;
+}
 /* .active {
   visibility: visible;
 } */
