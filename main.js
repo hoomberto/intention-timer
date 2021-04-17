@@ -31,7 +31,7 @@ var intentionsInput = document.querySelector('#intentions');
 
 var logActivityButton = document.querySelector("#logActivity");
 var pastActivitiesCards = document.querySelector(".activity-cards");
-
+var createNewActivityButton = document.querySelector('.create-new-activity');
 // EVENT LISTENERS
 
 window.onload = renderPastActivities();
@@ -39,16 +39,14 @@ startTimerButton.addEventListener('click', startCountDown);
 startActivityBtn.addEventListener("click", validate);
 iconSection.addEventListener("click", facilitateIconChange);
 logActivityButton.addEventListener('click', logActivity);
-
-
-//get input from user form
-// input.value
+createNewActivityButton.addEventListener('click', displayNewActivity);
 
 var currentActivity = {};
 
-// var currentActivity = new Activity(category, description, minutes, seconds);
-
-var savedActivities;
+function displayNewActivity() {
+  completedActivityView.classList.add('hidden');
+  newActivitySection.classList.remove('hidden');
+}
 
 function logActivity() {
   completedActivityView.classList.remove('hidden');
