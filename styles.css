@@ -114,6 +114,7 @@ button {
   padding: 33px;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .activity-cards {
@@ -135,7 +136,7 @@ button {
   /* border-right: 4px dashed green; */
   border-radius: 4px;
   color: #CBC9CF;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
 }
 
 .past-activity-card * {
@@ -148,6 +149,7 @@ button {
 
 h5 {
   margin: 0;
+  text-transform: capitalize;
 }
 
 h6 {

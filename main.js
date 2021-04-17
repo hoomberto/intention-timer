@@ -58,26 +58,38 @@ function logActivity() {
 }
 
 function renderPastActivities() {
+  //refactor this if statement into a new function
   if (!localStorage.getItem("pastActivities")) {
     resetStorage()
   }
-  var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
-  console.log(parsedActivities)
-  pastActivitiesCards.innerHTML = "";
-  for (var activity of parsedActivities) {
-    pastActivitiesCards.innerHTML +=
-    `
-      <div class="past-activity-card">
-        <div class="card-border ${activity.category}">
-        </div>
-        <div class="card-text">
-          <h5>${activity.category}</h5>
-          <h6>${activity.minutes}</h6>
-          <p>${activity.description}</p>
-        </div>
-      </div>
-    `
 
+  var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
+  //console.log(parsedActivities)
+  pastActivitiesCards.innerHTML = "";
+  if (!parsedActivities.length) {
+    pastActivitiesCards.innerHTML =
+    `
+    <div class="no-activities-text">
+      <p>You haven't logged any activities yet.</p>
+      <p>Complete the form to the left to get started!</p>
+    </div>
+    `
+    return
+  } else {
+    for (var activity of parsedActivities) {
+      pastActivitiesCards.innerHTML +=
+      `
+        <div class="past-activity-card">
+          <div class="card-border ${activity.category}">
+          </div>
+          <div class="card-text">
+            <h5>${activity.category}</h5>
+            <h6>${activity.minutes} MIN</h6>
+            <p>${activity.description}</p>
+          </div>
+        </div>
+      `
+    }
   }
 }
 
