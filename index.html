@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <link rel="stylesheet" href="./styles.css">
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -14,9 +14,9 @@
     <main>
       <section class="current-activity hidden">
         <h2>Current Activity</h2>
-        <section class="timer-container" id="actual-timer-container">
+        <section class="timer-container" id="timer-container">
           <div class="timer-header">
-            <p>Deep Breathing</p>
+            <h3>Deep Breathing</h3>
             <section class="timer-numbers">00:00</section>
           </div>
           <button class="start-timer">Start</button>
@@ -31,7 +31,7 @@
       </section>
       <section class="new-activity">
         <h2>New Activity:</h2>
-          <form class="timer-container">
+          <form>
             <div id="headerIconContainer">
               <h3>Select a category:</h3>
               <section id="categoriesIcons" class="categories-icons">
@@ -51,23 +51,23 @@
                   <p>Exercise</p>
                 </div>
               </section>
-              <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A category is required.</p>
+              <p class="error hidden"><img class="error-icon" src="./assets/warning.svg" alt="Error Icon">A category is required.</p>
             </div>
             <section class="intention-container">
-                <h3>What would you like to accomplish during this time?</h3>
+                <label for="intentions">What would you like to accomplish during this time?</label>
                 <input class="user-input" id="intentions" type="text"></input>
-                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A description is required.</p>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg" alt="Error Icon">A description is required.</p>
             </section>
             <section class="minutes-seconds-section">
               <div class="minutes-container">
                 <label for="minutes">Minutes</label>
                 <input id="minutes" maxlength="2" type="text"></input>
-                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A number is required.</p>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg" alt="Error Icon">A number is required.</p>
               </div>
               <div class="seconds-container">
                 <label for="seconds">Seconds</label>
                 <input id="seconds" maxlength="2" type="tel" name="seconds"></input>
-                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg">A number is required.</p>
+                <p class="error hidden"><img class="error-icon" src="./assets/warning.svg" alt="Error Icon">A number is required.</p>
               </div>
             </section>
             <div class="button-container">
@@ -78,21 +78,7 @@
       <section class="past-activity">
         <h2>Past Activities</h2>
         <section class="activity-cards">
-          <div class="past-activity-card">
-            <div class="card-border">
-            </div>
-            <div class="card-text">
-              <h5>Study</h5>
-              <h6>20 Min</h6>
-              <p>take meds</p>
-            </div>
-          </div>
-          <div class="no-activities-text">
-            <p>You haven't logged any activities yet.</p>
-            <p>Complete the form to the left to get started!</p>
-          </div>
         </section>
-
       </section>
     </main>
   </body>
