@@ -180,6 +180,7 @@ function updateCurrentActivity(category, description, minutes, seconds) {
   resetFields();
 }
 
+// Timer functions
 function displayInitialTimer() {
   currentView.classList.remove("hidden");
   newActivitySection.classList.add("hidden");
@@ -206,6 +207,42 @@ function formatUserTime(minutes, seconds) {
     userSeconds = `0${seconds}`;
   }
   displayTime(userMinutes, userSeconds);
+}
+
+function startCountDown() {
+  currentActivity.countdown();
+}
+
+function timerCountDown(minutes, seconds) {
+  var totalSeconds = (minutes * 60) + seconds;
+  var time = totalSeconds;
+  var counting = setInterval(function() {
+    time --;
+    formatTime(time);
+    if (time <= 0) {
+      clearInterval(counting);
+      //alert("The activity is complete")
+      completeCountdown();
+    }
+  }, 1000);
+}
+
+function completeCountdown() {
+  startTimerButton.innerText = "COMPLETE!";
+  logActivityButton.classList.remove("invisibility");
+  currentActivity.markComplete();
+}
+
+function formatTime(time) {
+  var minutes = Math.floor(time / 60);
+  var seconds = time % 60;
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  }
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  displayTime(minutes, seconds);
 }
 
 function displayTime(minutes, seconds) {
@@ -261,47 +298,8 @@ function renderPastActivities() {
   }
 }
 
-
-
-
-function startCountDown() {
-  currentActivity.countdown();
-}
-
-function timerCountDown(minutes, seconds) {
-  var totalSeconds = (minutes * 60) + seconds;
-  var time = totalSeconds;
-  var counting = setInterval(function() {
-    time --;
-    formatTime(time);
-    if (time <= 0) {
-      clearInterval(counting);
-      //alert("The activity is complete")
-      completeCountdown();
-    }
-  }, 1000);
-}
-
 function resetStorage() {
   var resetActivities = [];
   var strActivities = JSON.stringify(resetActivities);
   localStorage.setItem("pastActivities", strActivities);
-}
-
-function completeCountdown() {
-  startTimerButton.innerText = "COMPLETE!";
-  logActivityButton.classList.remove("invisibility");
-  currentActivity.markComplete();
-}
-
-function formatTime(time) {
-  var minutes = Math.floor(time / 60);
-  var seconds = time % 60;
-  if (minutes < 10) {
-    minutes = `0${minutes}`
-  }
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
-  displayTime(minutes, seconds);
 }
