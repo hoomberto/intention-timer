@@ -268,7 +268,7 @@ function renderPastActivities() {
     pastActivitiesCards.innerHTML =
     `
     <div class="no-activities-text">
-      <p>You haven"t logged any activities yet.</p>
+      <p>You haven't logged any activities yet.</p>
       <p>Complete the form to the left to get started!</p>
     </div>
     `
