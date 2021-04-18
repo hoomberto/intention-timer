@@ -37,7 +37,7 @@ var createNewActivityButton = document.querySelector(".create-new-activity");
 // EVENT LISTENERS
 window.onload = renderPastActivities();
 startTimerButton.addEventListener("click", startCountDown);
-startActivityBtn.addEventListener("click", validate);
+startActivityBtn.addEventListener("click", validateForm);
 iconSection.addEventListener("click", facilitateIconChange);
 logActivityButton.addEventListener("click", logActivity);
 createNewActivityButton.addEventListener("click", displayNewActivity);
@@ -167,7 +167,7 @@ function checkInputs(secondsValue, minutesValue, intentionsValue) {
   (secondsValue) ? hideError(3) : addError(3);
 }
 
-function validate(event) {
+function validateForm(event) {
   event.preventDefault()
   var secondsValue = secondsInput.value;
   var minutesValue = minutesInput.value;
@@ -278,28 +278,36 @@ function renderPastActivities() {
   var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
   pastActivitiesCards.innerHTML = "";
   if (!parsedActivities.length) {
-    pastActivitiesCards.innerHTML =
-    `
+    showDefaultLogMessage()
+    return
+  } else {
+    renderCards(parsedActivities)
+  }
+}
+
+function showDefaultLogMessage() {
+  pastActivitiesCards.innerHTML =
+  `
     <div class="no-activities-text">
       <p>You haven't logged any activities yet.</p>
       <p>Complete the form to the left to get started!</p>
     </div>
+  `
+}
+
+function renderCards(parsedActivities) {
+  for (var activity of parsedActivities) {
+    pastActivitiesCards.innerHTML +=
     `
-    return
-  } else {
-    for (var activity of parsedActivities) {
-      pastActivitiesCards.innerHTML +=
-      `
-        <div class="past-activity-card">
-          <div class="card-border ${activity.category}">
-          </div>
-          <div class="card-text">
-            <h3>${activity.category}</h3>
-            <h4>${activity.minutes} MIN</h4>
-            <p>${activity.description}</p>
-          </div>
+      <div class="past-activity-card">
+        <div class="card-border ${activity.category}">
         </div>
-      `
-    }
+        <div class="card-text">
+          <h3>${activity.category}</h3>
+          <h4>${activity.minutes} MIN</h4>
+          <p>${activity.description}</p>
+        </div>
+      </div>
+    `
   }
 }
