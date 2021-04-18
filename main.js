@@ -24,10 +24,9 @@ var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
 // Timer elements
 var currentView = document.querySelector('.current-activity');
 var timerContainer = document.querySelector('.current-activity');
-var timerNumbers = document.querySelector('.timer-numbers')
-var timerCategory = document.querySelector('#actual-timer-container p')
-var startTimerButton = document.querySelector('.start-timer')
-
+var timerNumbers = document.querySelector('.timer-numbers');
+var timerCategory = document.querySelector('#actual-timer-container h3');
+var startTimerButton = document.querySelector('.start-timer');
 // Completed activity view
 var completedActivityView = document.querySelector('.completed-activity');
 var logActivityButton = document.querySelector("#logActivity");
