@@ -1,13 +1,13 @@
 // New activity view
 var newActivitySection = document.querySelector(".new-activity");
 var inputFields = document.querySelectorAll('input[name="field"]');
-var startActivityBtn = document.querySelector('.start-activity-btn');
-var errorMsg = document.querySelectorAll('.error');
-var iconCtrs = document.querySelectorAll('.img-container');
-var intentionCtr = document.querySelector('.intention-container');
-var secondsInput = document.querySelector('#seconds');
-var minutesInput = document.querySelector('#minutes');
-var intentionsInput = document.querySelector('#intentions');
+var startActivityBtn = document.querySelector(".start-activity-btn");
+var errorMsg = document.querySelectorAll(".error");
+var iconCtrs = document.querySelectorAll(".img-container");
+var intentionCtr = document.querySelector(".intention-container");
+var secondsInput = document.querySelector("#seconds");
+var minutesInput = document.querySelector("#minutes");
+var intentionsInput = document.querySelector("#intentions");
 var iconSection = document.querySelector("#categoriesIcons");
 var studySection = document.querySelector("#study");
 var meditateSection = document.querySelector("#meditate");
@@ -22,24 +22,25 @@ var activeMeditateIcon = document.querySelector("#activeMeditateIcon");
 var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
 
 // Timer elements
-var currentView = document.querySelector('.current-activity');
-var timerContainer = document.querySelector('.current-activity');
-var timerNumbers = document.querySelector('.timer-numbers');
-var timerCategory = document.querySelector('#actual-timer-container h3');
-var startTimerButton = document.querySelector('.start-timer');
+var currentView = document.querySelector(".current-activity");
+var timerContainer = document.querySelector(".current-activity");
+var timerNumbers = document.querySelector(".timer-numbers");
+var timerCategory = document.querySelector("#timer-container h3");
+var startTimerButton = document.querySelector(".start-timer");
+
 // Completed activity view
-var completedActivityView = document.querySelector('.completed-activity');
-var logActivityButton = document.querySelector("#logActivity");
+var completedActivityView = document.querySelector(".completed-activity");
+var logActivityButton = document.querySelector(".log-activity");
 var pastActivitiesCards = document.querySelector(".activity-cards");
-var createNewActivityButton = document.querySelector('.create-new-activity');
+var createNewActivityButton = document.querySelector(".create-new-activity");
 
 // EVENT LISTENERS
 window.onload = renderPastActivities();
-startTimerButton.addEventListener('click', startCountDown);
+startTimerButton.addEventListener("click", startCountDown);
 startActivityBtn.addEventListener("click", validate);
 iconSection.addEventListener("click", facilitateIconChange);
-logActivityButton.addEventListener('click', logActivity);
-createNewActivityButton.addEventListener('click', displayNewActivity);
+logActivityButton.addEventListener("click", logActivity);
+createNewActivityButton.addEventListener("click", displayNewActivity);
 
 var currentActivity = {};
 
@@ -263,13 +264,13 @@ function displayTime(minutes, seconds) {
 }
 
 function displayNewActivity() {
-  completedActivityView.classList.add('hidden');
-  newActivitySection.classList.remove('hidden');
+  completedActivityView.classList.add("hidden");
+  newActivitySection.classList.remove("hidden");
 }
 
 function logActivity() {
-  completedActivityView.classList.remove('hidden');
-  currentView.classList.add('hidden');
+  completedActivityView.classList.remove("hidden");
+  currentView.classList.add("hidden");
 
   currentActivity.saveToStorage();
   renderPastActivities();
@@ -285,7 +286,7 @@ function renderPastActivities() {
     pastActivitiesCards.innerHTML =
     `
     <div class="no-activities-text">
-      <p>You haven't logged any activities yet.</p>
+      <p>You haven"t logged any activities yet.</p>
       <p>Complete the form to the left to get started!</p>
     </div>
     `
