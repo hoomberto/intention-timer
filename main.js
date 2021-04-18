@@ -186,7 +186,31 @@ function displayInitialTimer() {
   renderCurrentActivity();
 }
 
+function renderCurrentActivity() {
+  timerCategory.innerText = currentActivity.description;
+  startTimerButton.classList.add(`${currentActivity.category}`)
+  startTimerButton.innerText = "START!";
+  startTimerButton.disabled = false;
+  logActivityButton.classList.add("invisibility");
+  formatUserTime(currentActivity.minutes, currentActivity.seconds);
 
+}
+
+function formatUserTime(minutes, seconds) {
+  var userMinutes = minutes;
+  var userSeconds = seconds;
+  if (minutes < 10) {
+    userMinutes = `0${minutes}`
+  }
+  if (seconds < 10) {
+    userSeconds = `0${seconds}`;
+  }
+  displayTime(userMinutes, userSeconds);
+}
+
+function displayTime(minutes, seconds) {
+  timerNumbers.innerText = `${minutes}:${seconds}`;
+}
 
 function displayNewActivity() {
   completedActivityView.classList.add('hidden');
@@ -237,17 +261,7 @@ function renderPastActivities() {
   }
 }
 
-function renderCurrentActivity() {
-  timerCategory.innerText = currentActivity.description;
-  console.log(currentActivity);
-  console.log(startTimerButton);
-  startTimerButton.classList.add(`${currentActivity.category}`)
-  startTimerButton.innerText = "START!";
-  startTimerButton.disabled = false;
-  logActivityButton.classList.add("invisibility");
-  formatUserTime(currentActivity.minutes, currentActivity.seconds);
 
-}
 
 
 function startCountDown() {
@@ -290,20 +304,4 @@ function formatTime(time) {
     seconds = `0${seconds}`;
   }
   displayTime(minutes, seconds);
-}
-
-function formatUserTime(minutes, seconds) {
-  var userMinutes = minutes;
-  var userSeconds = seconds;
-  if (minutes < 10) {
-    userMinutes = `0${minutes}`
-  }
-  if (seconds < 10) {
-    userSeconds = `0${seconds}`;
-  }
-  displayTime(userMinutes, userSeconds);
-}
-
-function displayTime(minutes, seconds) {
-  timerNumbers.innerText = `${minutes}:${seconds}`;
 }
