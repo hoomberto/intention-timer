@@ -140,10 +140,7 @@ function validate(event) {
   var icon = validateIcons();
 
   if (secondsValue && minutesValue && intentionsValue && icon) {
-    hideError(0);
-    hideError(1);
-    hideError(2);
-    hideError(3);
+    hideAllErrors();
 
     updateCurrentActivity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
 
@@ -171,6 +168,13 @@ function validate(event) {
   return
 }
 
+function hideAllErrors() {
+  hideError(0);
+  hideError(1);
+  hideError(2);
+  hideError(3);
+}
+
 function updateCurrentActivity(category, description, minutes, seconds) {
   currentActivity = new Activity(category, description, minutes, seconds);
   resetFields();
@@ -181,6 +185,8 @@ function displayInitialTimer() {
   newActivitySection.classList.add("hidden");
   renderCurrentActivity();
 }
+
+
 
 function displayNewActivity() {
   completedActivityView.classList.add('hidden');
