@@ -298,8 +298,8 @@ function renderPastActivities() {
           <div class="card-border ${activity.category}">
           </div>
           <div class="card-text">
-            <h5>${activity.category}</h5>
-            <h6>${activity.minutes} MIN</h6>
+            <h3>${activity.category}</h3>
+            <h4>${activity.minutes} MIN</h4>
             <p>${activity.description}</p>
           </div>
         </div>
