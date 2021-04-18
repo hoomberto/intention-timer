@@ -143,6 +143,12 @@ function validateIcons() {
   }
 }
 
+function checkInputs(secondsValue, minutesValue, intentionsValue) {
+  (intentionsValue) ? hideError(1) : addError(1);
+  (minutesValue) ? hideError(2) : addError(2);
+  (secondsValue) ? hideError(3) : addError(3);
+}
+
 function validate(event) {
   event.preventDefault()
   var secondsValue = secondsInput.value;
@@ -155,32 +161,15 @@ function validate(event) {
 
   if (secondsValue && minutesValue && intentionsValue && icon) {
     hideAllErrors();
-
     updateCurrentActivity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
-
     displayInitialTimer()
     return
   }
-  if (!intentionsValue) {
-    addError(1);
-    }
-  if (intentionsValue) {
-    hideError(1);
-  }
-  if (minutesValue) {
-    hideError(2);
-  }
-  if (!minutesValue) {
-    addError(2);
-  }
-  if (secondsValue) {
-    hideError(3);
-  }
-  if (!secondsValue) {
-    addError(3);
-  }
+  checkInputs(secondsValue, minutesValue, intentionsValue)
   return
 }
+
+
 
 function hideAllErrors() {
   hideError(0);
