@@ -1,24 +1,4 @@
-var currentView = document.querySelector('.current-activity');
-var timerContainer = document.querySelector('.current-activity');
-var timerNumbers = document.querySelector('.timer-numbers')
-var timerCategory = document.querySelector('#actual-timer-container p')
-var startTimerButton = document.querySelector('.start-timer')
-
-var completedActivityView = document.querySelector('.completed-activity');
-
-var iconSection = document.querySelector("#categoriesIcons");
-var studySection = document.querySelector("#study");
-var meditateSection = document.querySelector("#meditate");
-var exerciseSection = document.querySelector("#exercise");
-
-var studyIcon = document.querySelector("#studyIcon");
-var meditateIcon = document.querySelector("#meditateIcon");
-var exerciseIcon = document.querySelector("#exerciseIcon");
-
-var activeStudyIcon = document.querySelector("#activeStudyIcon");
-var activeMeditateIcon = document.querySelector("#activeMeditateIcon");
-var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
-
+// New activity view
 var newActivitySection = document.querySelector(".new-activity");
 var inputFields = document.querySelectorAll('input[name="field"]');
 var startActivityBtn = document.querySelector('.start-activity-btn');
@@ -28,12 +8,33 @@ var intentionCtr = document.querySelector('.intention-container');
 var secondsInput = document.querySelector('#seconds');
 var minutesInput = document.querySelector('#minutes');
 var intentionsInput = document.querySelector('#intentions');
+var iconSection = document.querySelector("#categoriesIcons");
+var studySection = document.querySelector("#study");
+var meditateSection = document.querySelector("#meditate");
+var exerciseSection = document.querySelector("#exercise");
 
+// Icons
+var studyIcon = document.querySelector("#studyIcon");
+var meditateIcon = document.querySelector("#meditateIcon");
+var exerciseIcon = document.querySelector("#exerciseIcon");
+var activeStudyIcon = document.querySelector("#activeStudyIcon");
+var activeMeditateIcon = document.querySelector("#activeMeditateIcon");
+var activeExerciseIcon = document.querySelector("#activeExerciseIcon");
+
+// Timer elements
+var currentView = document.querySelector('.current-activity');
+var timerContainer = document.querySelector('.current-activity');
+var timerNumbers = document.querySelector('.timer-numbers')
+var timerCategory = document.querySelector('#actual-timer-container p')
+var startTimerButton = document.querySelector('.start-timer')
+
+// Completed activity view
+var completedActivityView = document.querySelector('.completed-activity');
 var logActivityButton = document.querySelector("#logActivity");
 var pastActivitiesCards = document.querySelector(".activity-cards");
 var createNewActivityButton = document.querySelector('.create-new-activity');
-// EVENT LISTENERS
 
+// EVENT LISTENERS
 window.onload = renderPastActivities();
 startTimerButton.addEventListener('click', startCountDown);
 startActivityBtn.addEventListener("click", validate);
@@ -279,7 +280,7 @@ function renderPastActivities() {
   checkLocalStorage();
 
   var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
-  //console.log(parsedActivities)
+
   pastActivitiesCards.innerHTML = "";
   if (!parsedActivities.length) {
     pastActivitiesCards.innerHTML =
