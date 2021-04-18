@@ -147,9 +147,7 @@ function validate(event) {
 
     updateCurrentActivity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
 
-    currentView.classList.remove("hidden");
-    newActivitySection.classList.add("hidden");
-    renderCurrentActivity();
+    displayInitialTimer()
     return
   }
   if (!intentionsValue) {
@@ -176,6 +174,12 @@ function validate(event) {
 function updateCurrentActivity(category, description, minutes, seconds) {
   currentActivity = new Activity(category, description, minutes, seconds);
   resetFields();
+}
+
+function displayInitialTimer() {
+  currentView.classList.remove("hidden");
+  newActivitySection.classList.add("hidden");
+  renderCurrentActivity();
 }
 
 function displayNewActivity() {
