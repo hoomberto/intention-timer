@@ -80,34 +80,46 @@ function addToClassList(section, iconId) {
   section.classList.add(iconId);
 }
 
+function activateStudyIcon() {
+  hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
+  displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
+  addToClassList(studySection, "study-active")
+  addToClassList(studySection, "active");
+  removeFromClassList(meditateSection, "meditate-active");
+  removeFromClassList(exerciseSection, "exercise-active");
+  removeFromClassList(meditateSection, "active");
+  removeFromClassList(exerciseSection, "active");
+}
+
+function activateMeditateIcon() {
+  hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
+  displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
+  addToClassList(meditateSection, "meditate-active");
+  addToClassList(meditateSection, "active");
+  removeFromClassList(studySection, "study-active");
+  removeFromClassList(exerciseSection, "exercise-active");
+  removeFromClassList(studySection, "active");
+  removeFromClassList(exerciseSection, "active");
+}
+
+function activateExerciseIcon() {
+  hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
+  displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
+  addToClassList(exerciseSection, "exercise-active");
+  addToClassList(exerciseSection, "active");
+  removeFromClassList(meditateSection, "meditate-active");
+  removeFromClassList(studySection, "study-active")
+  removeFromClassList(meditateSection, "active");
+  removeFromClassList(studySection, "active")
+}
+
 function facilitateIconChange() {
   if (event.target.closest("#study")) {
-    hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
-    displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
-    addToClassList(studySection, "study-active")
-    addToClassList(studySection, "active");
-    removeFromClassList(meditateSection, "meditate-active");
-    removeFromClassList(exerciseSection, "exercise-active");
-    removeFromClassList(meditateSection, "active");
-    removeFromClassList(exerciseSection, "active");
+    activateStudyIcon();
   } else if (event.target.closest("#meditate")) {
-    hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
-    displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
-    addToClassList(meditateSection, "meditate-active");
-    addToClassList(meditateSection, "active");
-    removeFromClassList(studySection, "study-active");
-    removeFromClassList(exerciseSection, "exercise-active");
-    removeFromClassList(studySection, "active");
-    removeFromClassList(exerciseSection, "active");
+    activateMeditateIcon();
   } else if (event.target.closest("#exercise")) {
-    hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
-    displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
-    addToClassList(exerciseSection, "exercise-active");
-    addToClassList(exerciseSection, "active");
-    removeFromClassList(meditateSection, "meditate-active");
-    removeFromClassList(studySection, "study-active")
-    removeFromClassList(meditateSection, "active");
-    removeFromClassList(studySection, "active")
+    activateExerciseIcon();
   }
 }
 
@@ -142,8 +154,8 @@ function validateIcons() {
     else {
       activeCount++
       if (activeCount === 3) {
-      addError(0);
-      break;
+        addError(0);
+        break;
       }
     }
   }
@@ -189,11 +201,11 @@ function displayInitialTimer() {
 function renderCurrentActivity() {
   timerCategory.innerText = currentActivity.description;
   startTimerButton.classList.add(`${currentActivity.category}`)
+  startTimerButton.classList.add("hover");
   startTimerButton.innerText = "START!";
   startTimerButton.disabled = false;
   logActivityButton.classList.add("invisibility");
   formatUserTime(currentActivity.minutes, currentActivity.seconds);
-
 }
 
 function formatUserTime(minutes, seconds) {
@@ -228,6 +240,7 @@ function timerCountDown(minutes, seconds) {
 
 function completeCountdown() {
   startTimerButton.innerText = "COMPLETE!";
+  startTimerButton.classList.remove("hover");
   logActivityButton.classList.remove("invisibility");
   currentActivity.markComplete();
 }

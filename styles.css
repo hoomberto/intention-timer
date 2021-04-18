@@ -369,7 +369,11 @@ input {
   background-color: #46424D;
 }
 
-.start-timer:hover {
+/* .start-timer:hover {
+  background-color: #3e3b45;
+} */
+
+.hover:hover {
   background-color: #3e3b45;
 }
 
