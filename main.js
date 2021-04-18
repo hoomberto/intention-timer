@@ -278,10 +278,10 @@ function renderPastActivities() {
   var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
   pastActivitiesCards.innerHTML = "";
   if (!parsedActivities.length) {
-    showDefaultLogMessage()
+    showDefaultLogMessage();
     return
   } else {
-    renderCards(parsedActivities)
+    renderCards(parsedActivities);
   }
 }
 
