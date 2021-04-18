@@ -125,13 +125,19 @@ function resetFields() {
  intentionsInput.value = "";
 }
 
+function hideAllErrors() {
+  hideError(0);
+  hideError(1);
+  hideError(2);
+  hideError(3);
+}
+
 function validateIcons() {
   var activeCount = 0;
   for (var icon of iconCtrs) {
     if (icon.classList.contains("active")) {
       hideError(0)
       return icon;
-      // break
     }
     else {
       activeCount++
@@ -156,7 +162,6 @@ function validate(event) {
   var intentionsValue = intentionsInput.value;
   var parsedSeconds = parseInt(secondsValue);
   var parsedMinutes = parseInt(minutesValue);
-
   var icon = validateIcons();
 
   if (secondsValue && minutesValue && intentionsValue && icon) {
@@ -167,15 +172,6 @@ function validate(event) {
   }
   checkInputs(secondsValue, minutesValue, intentionsValue)
   return
-}
-
-
-
-function hideAllErrors() {
-  hideError(0);
-  hideError(1);
-  hideError(2);
-  hideError(3);
 }
 
 function updateCurrentActivity(category, description, minutes, seconds) {
@@ -260,16 +256,13 @@ function displayNewActivity() {
 function logActivity() {
   completedActivityView.classList.remove("hidden");
   currentView.classList.add("hidden");
-
   currentActivity.saveToStorage();
   renderPastActivities();
 }
 
 function renderPastActivities() {
   checkLocalStorage();
-
   var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
-
   pastActivitiesCards.innerHTML = "";
   if (!parsedActivities.length) {
     pastActivitiesCards.innerHTML =
