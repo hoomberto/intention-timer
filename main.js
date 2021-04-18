@@ -43,6 +43,137 @@ createNewActivityButton.addEventListener('click', displayNewActivity);
 
 var currentActivity = {};
 
+//form validation
+
+function displayIcons(icon1, icon2, icon3) {
+  icon1.classList.remove("hidden");
+  icon2.classList.remove("hidden");
+  icon3.classList.remove("hidden");
+}
+
+function hideIcons(icon1, icon2, icon3) {
+  icon1.classList.add("hidden");
+  icon2.classList.add("hidden");
+  icon3.classList.add("hidden");
+}
+
+function removeFromClassList(section, iconId) {
+  section.classList.remove(iconId);
+
+}
+
+function addToClassList(section, iconId) {
+  section.classList.add(iconId);
+}
+
+function facilitateIconChange() {
+  if (event.target.closest("#study")) {
+    hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
+    displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
+    addToClassList(studySection, "study-active")
+    addToClassList(studySection, "active");
+    removeFromClassList(meditateSection, "meditate-active");
+    removeFromClassList(exerciseSection, "exercise-active");
+    removeFromClassList(meditateSection, "active");
+    removeFromClassList(exerciseSection, "active");
+  } else if (event.target.closest("#meditate")) {
+    hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
+    displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
+    addToClassList(meditateSection, "meditate-active");
+    addToClassList(meditateSection, "active");
+    removeFromClassList(studySection, "study-active");
+    removeFromClassList(exerciseSection, "exercise-active");
+    removeFromClassList(studySection, "active");
+    removeFromClassList(exerciseSection, "active");
+  } else if (event.target.closest("#exercise")) {
+    hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
+    displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
+    addToClassList(exerciseSection, "exercise-active");
+    addToClassList(exerciseSection, "active");
+    removeFromClassList(meditateSection, "meditate-active");
+    removeFromClassList(studySection, "study-active")
+    removeFromClassList(meditateSection, "active");
+    removeFromClassList(studySection, "active")
+  }
+}
+
+function validate(event) {
+  event.preventDefault()
+  var secondsValue = secondsInput.value;
+  var minutesValue = minutesInput.value;
+  var intentionsValue = intentionsInput.value;
+  var parsedSeconds = parseInt(secondsValue);
+  var parsedMinutes = parseInt(minutesValue);
+
+  var icon = validateIcons();
+
+  if (secondsValue && minutesValue && intentionsValue && icon) {
+    hideError(0);
+    hideError(1);
+    hideError(2);
+    hideError(3);
+
+    currentActivity = new Activity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
+    resetFields();
+    currentView.classList.remove("hidden");
+    newActivitySection.classList.add("hidden");
+    renderCurrentActivity();
+    return
+  }
+  if (!intentionsValue) {
+    addError(1);
+    }
+  if (intentionsValue) {
+    hideError(1);
+  }
+  if (minutesValue) {
+    hideError(2);
+  }
+  if (!minutesValue) {
+    addError(2);
+  }
+  if (secondsValue) {
+    hideError(3);
+  }
+  if (!secondsValue) {
+    addError(3);
+  }
+  return
+}
+
+function addError(msgIndex) {
+  errorMsg[msgIndex].classList.remove("hidden");
+}
+
+function hideError(msgIndex) {
+  errorMsg[msgIndex].classList.add("hidden");
+}
+
+function resetFields() {
+ secondsInput.value = "";
+ minutesInput.value = "";
+ intentionsInput.value = "";
+}
+
+function validateIcons() {
+  var activeCount = 0;
+  for (var icon of iconCtrs) {
+    if (icon.classList.contains("active")) {
+      hideError(0)
+      return icon;
+      // break
+    }
+    else {
+      activeCount++
+      if (activeCount === 3) {
+      addError(0);
+      break;
+      }
+    }
+  }
+}
+
+
 function displayNewActivity() {
   completedActivityView.classList.add('hidden');
   newActivitySection.classList.remove('hidden');
@@ -162,143 +293,3 @@ function formatUserTime(minutes, seconds) {
 function displayTime(minutes, seconds) {
   timerNumbers.innerText = `${minutes}:${seconds}`;
 }
-
-function addError(msgIndex) {
-  errorMsg[msgIndex].classList.remove("hidden");
-}
-
-function hideError(msgIndex) {
-  errorMsg[msgIndex].classList.add("hidden");
-}
-
-function resetFields() {
- secondsInput.value = "";
- minutesInput.value = "";
- intentionsInput.value = "";
-}
-
-function validateIcons() {
-  var activeCount = 0;
-  for (var icon of iconCtrs) {
-    if (icon.classList.contains("active")) {
-      hideError(0)
-      return icon;
-      // break
-    }
-    else {
-      activeCount++
-      if (activeCount === 3) {
-      addError(0);
-      break;
-      }
-    }
-  }
-}
-
-function validate(event) {
-  event.preventDefault()
-  var secondsValue = secondsInput.value;
-  var minutesValue = minutesInput.value;
-  var intentionsValue = intentionsInput.value;
-  var parsedSeconds = parseInt(secondsValue);
-  var parsedMinutes = parseInt(minutesValue);
-
-  var icon = validateIcons();
-
-  if (secondsValue && minutesValue && intentionsValue && icon) {
-    hideError(0);
-    hideError(1);
-    hideError(2);
-    hideError(3);
-
-    currentActivity = new Activity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
-    resetFields();
-    currentView.classList.remove("hidden");
-    newActivitySection.classList.add("hidden");
-    renderCurrentActivity();
-    return
-  }
-  if (!intentionsValue) {
-    addError(1);
-    }
-  if (intentionsValue) {
-    hideError(1);
-  }
-  if (minutesValue) {
-    hideError(2);
-  }
-  if (!minutesValue) {
-    addError(2);
-  }
-  if (secondsValue) {
-    hideError(3);
-  }
-  if (!secondsValue) {
-    addError(3);
-  }
-  return
-}
-
-function displayIcons(icon1, icon2, icon3) {
-  icon1.classList.remove("hidden");
-  icon2.classList.remove("hidden");
-  icon3.classList.remove("hidden");
-}
-
-function hideIcons(icon1, icon2, icon3) {
-  icon1.classList.add("hidden");
-  icon2.classList.add("hidden");
-  icon3.classList.add("hidden");
-}
-
-
-function removeFromClassList(section, iconId) {
-  section.classList.remove(iconId);
-
-}
-
-function addToClassList(section, iconId) {
-  section.classList.add(iconId);
-}
-
-
-function facilitateIconChange() {
-  if (event.target.closest("#study")) {
-    hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
-    displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
-    addToClassList(studySection, "study-active")
-    addToClassList(studySection, "active");
-    removeFromClassList(meditateSection, "meditate-active");
-    removeFromClassList(exerciseSection, "exercise-active");
-    removeFromClassList(meditateSection, "active");
-    removeFromClassList(exerciseSection, "active");
-  } else if (event.target.closest("#meditate")) {
-    hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
-    displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
-    addToClassList(meditateSection, "meditate-active");
-    addToClassList(meditateSection, "active");
-    removeFromClassList(studySection, "study-active");
-    removeFromClassList(exerciseSection, "exercise-active");
-    removeFromClassList(studySection, "active");
-    removeFromClassList(exerciseSection, "active");
-  } else if (event.target.closest("#exercise")) {
-    hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
-    displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
-    addToClassList(exerciseSection, "exercise-active");
-    addToClassList(exerciseSection, "active");
-    removeFromClassList(meditateSection, "meditate-active");
-    removeFromClassList(studySection, "study-active")
-    removeFromClassList(meditateSection, "active");
-    removeFromClassList(studySection, "active")
-  }
-}
-
-//single param functions
-
-// function hideIcon(iconType) {
-//   iconType.classList.add("hidden")
-// }
-//event handler for displaying the original svg
-// function displayIcon(iconType) {
-//   iconType.classList.remove("hidden")
-// }
