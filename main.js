@@ -43,6 +43,19 @@ createNewActivityButton.addEventListener('click', displayNewActivity);
 
 var currentActivity = {};
 
+// Local storage functions
+function resetStorage() {
+  var resetActivities = [];
+  var strActivities = JSON.stringify(resetActivities);
+  localStorage.setItem("pastActivities", strActivities);
+}
+
+function checkLocalStorage() {
+  if (!localStorage.getItem("pastActivities")) {
+    resetStorage()
+  }
+}
+
 //form validation
 
 function displayIcons(icon1, icon2, icon3) {
@@ -263,10 +276,7 @@ function logActivity() {
 }
 
 function renderPastActivities() {
-  //refactor this if statement into a new function
-  if (!localStorage.getItem("pastActivities")) {
-    resetStorage()
-  }
+  checkLocalStorage();
 
   var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
   //console.log(parsedActivities)
@@ -296,10 +306,4 @@ function renderPastActivities() {
       `
     }
   }
-}
-
-function resetStorage() {
-  var resetActivities = [];
-  var strActivities = JSON.stringify(resetActivities);
-  localStorage.setItem("pastActivities", strActivities);
 }

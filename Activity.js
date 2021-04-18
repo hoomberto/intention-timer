@@ -18,9 +18,8 @@ class Activity {
   }
 
   saveToStorage() {
-    if (!localStorage.getItem("pastActivities")) {
-      resetStorage()
-    }
+    checkLocalStorage();
+    
     var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"))
     parsedActivities.push(this);
     localStorage.setItem("pastActivities", JSON.stringify(parsedActivities))
