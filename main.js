@@ -273,18 +273,6 @@ function logActivity() {
   renderPastActivities();
 }
 
-function renderPastActivities() {
-  checkLocalStorage();
-  var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
-  pastActivitiesCards.innerHTML = "";
-  if (!parsedActivities.length) {
-    showDefaultLogMessage();
-    return
-  } else {
-    renderCards(parsedActivities);
-  }
-}
-
 function showDefaultLogMessage() {
   pastActivitiesCards.innerHTML =
   `
@@ -309,5 +297,17 @@ function renderCards(parsedActivities) {
         </div>
       </div>
     `
+  }
+}
+
+function renderPastActivities() {
+  checkLocalStorage();
+  var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
+  pastActivitiesCards.innerHTML = "";
+  if (!parsedActivities.length) {
+    showDefaultLogMessage();
+    return
+  } else {
+    renderCards(parsedActivities);
   }
 }
