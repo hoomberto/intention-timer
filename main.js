@@ -97,50 +97,6 @@ function facilitateIconChange() {
   }
 }
 
-function validate(event) {
-  event.preventDefault()
-  var secondsValue = secondsInput.value;
-  var minutesValue = minutesInput.value;
-  var intentionsValue = intentionsInput.value;
-  var parsedSeconds = parseInt(secondsValue);
-  var parsedMinutes = parseInt(minutesValue);
-
-  var icon = validateIcons();
-
-  if (secondsValue && minutesValue && intentionsValue && icon) {
-    hideError(0);
-    hideError(1);
-    hideError(2);
-    hideError(3);
-
-    currentActivity = new Activity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
-    resetFields();
-    currentView.classList.remove("hidden");
-    newActivitySection.classList.add("hidden");
-    renderCurrentActivity();
-    return
-  }
-  if (!intentionsValue) {
-    addError(1);
-    }
-  if (intentionsValue) {
-    hideError(1);
-  }
-  if (minutesValue) {
-    hideError(2);
-  }
-  if (!minutesValue) {
-    addError(2);
-  }
-  if (secondsValue) {
-    hideError(3);
-  }
-  if (!secondsValue) {
-    addError(3);
-  }
-  return
-}
-
 function addError(msgIndex) {
   errorMsg[msgIndex].classList.remove("hidden");
 }
@@ -173,6 +129,54 @@ function validateIcons() {
   }
 }
 
+function validate(event) {
+  event.preventDefault()
+  var secondsValue = secondsInput.value;
+  var minutesValue = minutesInput.value;
+  var intentionsValue = intentionsInput.value;
+  var parsedSeconds = parseInt(secondsValue);
+  var parsedMinutes = parseInt(minutesValue);
+
+  var icon = validateIcons();
+
+  if (secondsValue && minutesValue && intentionsValue && icon) {
+    hideError(0);
+    hideError(1);
+    hideError(2);
+    hideError(3);
+
+    updateCurrentActivity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
+
+    currentView.classList.remove("hidden");
+    newActivitySection.classList.add("hidden");
+    renderCurrentActivity();
+    return
+  }
+  if (!intentionsValue) {
+    addError(1);
+    }
+  if (intentionsValue) {
+    hideError(1);
+  }
+  if (minutesValue) {
+    hideError(2);
+  }
+  if (!minutesValue) {
+    addError(2);
+  }
+  if (secondsValue) {
+    hideError(3);
+  }
+  if (!secondsValue) {
+    addError(3);
+  }
+  return
+}
+
+function updateCurrentActivity(category, description, minutes, seconds) {
+  currentActivity = new Activity(category, description, minutes, seconds);
+  resetFields();
+}
 
 function displayNewActivity() {
   completedActivityView.classList.add('hidden');
