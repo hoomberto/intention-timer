@@ -25,9 +25,8 @@ This is an interactive website that is meant to demonstrate an understanding of 
 
 ## Contributors
 [Ashley O'Brien](https://github.com/AshleyOh-bit)<br>
-[Bobby Vasquez](https://github.com/hoomberto/)<br>
-[Taylor Galloway](https://github.com/tylrs)
-
+[Taylor Galloway](https://github.com/tylrs)<br>
+[Bobby Vasquez](https://github.com/hoomberto/)
 
 ## Languages
 JavaScript  
