@@ -24,8 +24,8 @@ This is an interactive website that is meant to demonstrate an understanding of 
 - Incorporating a login page that accesses the Tumblr API 
 
 ## Contributors
-[Ashley O'Brien](https://github.com/AshleyOh-bit)
-[Bobby Vasquez](https://github.com/hoomberto/)
+[Ashley O'Brien](https://github.com/AshleyOh-bit)<br>
+[Bobby Vasquez](https://github.com/hoomberto/)<br>
 [Taylor Galloway](https://github.com/tylrs)
 
 
