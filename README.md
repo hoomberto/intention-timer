@@ -21,3 +21,8 @@ This is an interactive website that is meant to demonstrate an understanding of 
 - Add error handling for certain user inputs (i.e. 99 and 00)
 - Pausing the timer
 - Incorporating a login page that accesses the Tumblr API 
+
+## Languages
+JavaScript  
+CSS  
+HTML 
