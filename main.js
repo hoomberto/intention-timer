@@ -37,7 +37,7 @@ var createNewActivityButton = document.querySelector(".create-new-activity");
 // EVENT LISTENERS
 window.onload = renderPastActivities();
 startTimerButton.addEventListener("click", startCountDown);
-startActivityBtn.addEventListener("click", validate);
+startActivityBtn.addEventListener("click", validateForm);
 iconSection.addEventListener("click", facilitateIconChange);
 logActivityButton.addEventListener("click", logActivity);
 createNewActivityButton.addEventListener("click", displayNewActivity);
@@ -80,34 +80,46 @@ function addToClassList(section, iconId) {
   section.classList.add(iconId);
 }
 
+function activateStudyIcon() {
+  hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
+  displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
+  addToClassList(studySection, "study-active")
+  addToClassList(studySection, "active");
+  removeFromClassList(meditateSection, "meditate-active");
+  removeFromClassList(exerciseSection, "exercise-active");
+  removeFromClassList(meditateSection, "active");
+  removeFromClassList(exerciseSection, "active");
+}
+
+function activateMeditateIcon() {
+  hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
+  displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
+  addToClassList(meditateSection, "meditate-active");
+  addToClassList(meditateSection, "active");
+  removeFromClassList(studySection, "study-active");
+  removeFromClassList(exerciseSection, "exercise-active");
+  removeFromClassList(studySection, "active");
+  removeFromClassList(exerciseSection, "active");
+}
+
+function activateExerciseIcon() {
+  hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
+  displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
+  addToClassList(exerciseSection, "exercise-active");
+  addToClassList(exerciseSection, "active");
+  removeFromClassList(meditateSection, "meditate-active");
+  removeFromClassList(studySection, "study-active")
+  removeFromClassList(meditateSection, "active");
+  removeFromClassList(studySection, "active")
+}
+
 function facilitateIconChange() {
   if (event.target.closest("#study")) {
-    hideIcons(studyIcon, activeMeditateIcon, activeExerciseIcon);
-    displayIcons(activeStudyIcon, meditateIcon, exerciseIcon);
-    addToClassList(studySection, "study-active")
-    addToClassList(studySection, "active");
-    removeFromClassList(meditateSection, "meditate-active");
-    removeFromClassList(exerciseSection, "exercise-active");
-    removeFromClassList(meditateSection, "active");
-    removeFromClassList(exerciseSection, "active");
+    activateStudyIcon();
   } else if (event.target.closest("#meditate")) {
-    hideIcons(meditateIcon, activeStudyIcon, activeExerciseIcon);
-    displayIcons(studyIcon, exerciseIcon, activeMeditateIcon);
-    addToClassList(meditateSection, "meditate-active");
-    addToClassList(meditateSection, "active");
-    removeFromClassList(studySection, "study-active");
-    removeFromClassList(exerciseSection, "exercise-active");
-    removeFromClassList(studySection, "active");
-    removeFromClassList(exerciseSection, "active");
+    activateMeditateIcon();
   } else if (event.target.closest("#exercise")) {
-    hideIcons(exerciseIcon, activeMeditateIcon, activeStudyIcon);
-    displayIcons(activeExerciseIcon, meditateIcon, studyIcon);
-    addToClassList(exerciseSection, "exercise-active");
-    addToClassList(exerciseSection, "active");
-    removeFromClassList(meditateSection, "meditate-active");
-    removeFromClassList(studySection, "study-active")
-    removeFromClassList(meditateSection, "active");
-    removeFromClassList(studySection, "active")
+    activateExerciseIcon();
   }
 }
 
@@ -125,68 +137,53 @@ function resetFields() {
  intentionsInput.value = "";
 }
 
+function hideAllErrors() {
+  hideError(0);
+  hideError(1);
+  hideError(2);
+  hideError(3);
+}
+
 function validateIcons() {
   var activeCount = 0;
   for (var icon of iconCtrs) {
     if (icon.classList.contains("active")) {
       hideError(0)
       return icon;
-      // break
     }
     else {
       activeCount++
       if (activeCount === 3) {
-      addError(0);
-      break;
+        addError(0);
+        break;
       }
     }
   }
 }
 
-function validate(event) {
+function checkInputs(secondsValue, minutesValue, intentionsValue) {
+  (intentionsValue) ? hideError(1) : addError(1);
+  (minutesValue) ? hideError(2) : addError(2);
+  (secondsValue) ? hideError(3) : addError(3);
+}
+
+function validateForm(event) {
   event.preventDefault()
   var secondsValue = secondsInput.value;
   var minutesValue = minutesInput.value;
   var intentionsValue = intentionsInput.value;
   var parsedSeconds = parseInt(secondsValue);
   var parsedMinutes = parseInt(minutesValue);
-
   var icon = validateIcons();
 
   if (secondsValue && minutesValue && intentionsValue && icon) {
     hideAllErrors();
-
     updateCurrentActivity(icon.getAttribute("name"), intentionsValue, parsedMinutes, parsedSeconds);
-
     displayInitialTimer()
     return
   }
-  if (!intentionsValue) {
-    addError(1);
-    }
-  if (intentionsValue) {
-    hideError(1);
-  }
-  if (minutesValue) {
-    hideError(2);
-  }
-  if (!minutesValue) {
-    addError(2);
-  }
-  if (secondsValue) {
-    hideError(3);
-  }
-  if (!secondsValue) {
-    addError(3);
-  }
+  checkInputs(secondsValue, minutesValue, intentionsValue)
   return
-}
-
-function hideAllErrors() {
-  hideError(0);
-  hideError(1);
-  hideError(2);
-  hideError(3);
 }
 
 function updateCurrentActivity(category, description, minutes, seconds) {
@@ -204,11 +201,11 @@ function displayInitialTimer() {
 function renderCurrentActivity() {
   timerCategory.innerText = currentActivity.description;
   startTimerButton.classList.add(`${currentActivity.category}`)
+  startTimerButton.classList.add("hover");
   startTimerButton.innerText = "START!";
   startTimerButton.disabled = false;
   logActivityButton.classList.add("invisibility");
   formatUserTime(currentActivity.minutes, currentActivity.seconds);
-
 }
 
 function formatUserTime(minutes, seconds) {
@@ -243,6 +240,7 @@ function timerCountDown(minutes, seconds) {
 
 function completeCountdown() {
   startTimerButton.innerText = "COMPLETE!";
+  startTimerButton.classList.remove("hover");
   logActivityButton.classList.remove("invisibility");
   currentActivity.markComplete();
 }
@@ -271,40 +269,45 @@ function displayNewActivity() {
 function logActivity() {
   completedActivityView.classList.remove("hidden");
   currentView.classList.add("hidden");
-
   currentActivity.saveToStorage();
   renderPastActivities();
 }
 
-function renderPastActivities() {
-  checkLocalStorage();
-
-  var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
-
-  pastActivitiesCards.innerHTML = "";
-  if (!parsedActivities.length) {
-    pastActivitiesCards.innerHTML =
-    `
+function showDefaultLogMessage() {
+  pastActivitiesCards.innerHTML =
+  `
     <div class="no-activities-text">
-      <p>You haven"t logged any activities yet.</p>
+      <p>You haven't logged any activities yet.</p>
       <p>Complete the form to the left to get started!</p>
     </div>
+  `
+}
+
+function renderCards(parsedActivities) {
+  for (var activity of parsedActivities) {
+    pastActivitiesCards.innerHTML +=
     `
+      <div class="past-activity-card">
+        <div class="card-border ${activity.category}">
+        </div>
+        <div class="card-text">
+          <h3>${activity.category}</h3>
+          <h4>${activity.minutes} MIN</h4>
+          <p>${activity.description}</p>
+        </div>
+      </div>
+    `
+  }
+}
+
+function renderPastActivities() {
+  checkLocalStorage();
+  var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
+  pastActivitiesCards.innerHTML = "";
+  if (!parsedActivities.length) {
+    showDefaultLogMessage();
     return
   } else {
-    for (var activity of parsedActivities) {
-      pastActivitiesCards.innerHTML +=
-      `
-        <div class="past-activity-card">
-          <div class="card-border ${activity.category}">
-          </div>
-          <div class="card-text">
-            <h3>${activity.category}</h3>
-            <h4>${activity.minutes} MIN</h4>
-            <p>${activity.description}</p>
-          </div>
-        </div>
-      `
-    }
+    renderCards(parsedActivities);
   }
 }

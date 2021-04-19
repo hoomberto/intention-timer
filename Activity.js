@@ -19,10 +19,8 @@ class Activity {
 
   saveToStorage() {
     checkLocalStorage();
-    
-    var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"))
+    var parsedActivities = JSON.parse(localStorage.getItem("pastActivities"));
     parsedActivities.push(this);
-    localStorage.setItem("pastActivities", JSON.stringify(parsedActivities))
-
+    localStorage.setItem("pastActivities", JSON.stringify(parsedActivities));
   }
 }
