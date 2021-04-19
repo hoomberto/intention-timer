@@ -41,8 +41,8 @@ startActivityBtn.addEventListener("click", validateForm);
 iconSection.addEventListener("click", facilitateIconChange);
 logActivityButton.addEventListener("click", logActivity);
 createNewActivityButton.addEventListener("click", displayNewActivity);
-secondsInput.addEventListener("keydown", checkForDigitsOnly);
-minutesInput.addEventListener("keydown", checkForDigitsOnly);
+secondsInput.addEventListener("keydown", checkSecondsDigits);
+minutesInput.addEventListener("keydown", checkMinutesDigits);
 
 var currentActivity = {};
 
@@ -60,14 +60,26 @@ function checkLocalStorage() {
 }
 
 //form validation
-
-function checkForDigitsOnly(event) {
+function checkMinutesDigits(event) {
   var validCodes = [39, 37, 8, 9, 91, 13, 38, 40];
-
   if (event.keyCode >= 48 && event.keyCode <= 57 || validCodes.includes(event.keyCode)) {
+    hideError(2)
     return
   }
   event.preventDefault();
+  addError(2)
+  return
+}
+
+function checkSecondsDigits(event) {
+  var validCodes = [39, 37, 8, 9, 91, 13, 38, 40];
+
+  if (event.keyCode >= 48 && event.keyCode <= 57 || validCodes.includes(event.keyCode)) {
+    hideError(3)
+    return
+  }
+  event.preventDefault();
+  addError(3)
   return
 }
 
