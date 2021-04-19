@@ -18,6 +18,7 @@ This is an interactive website that is meant to demonstrate an understanding of 
 ## Features
 - Users can select a category, set an intention, enter minutes, seconds value, and have a timer run corresponding to these inputs
 - Users can log the activity that they have set
+- Logged activities are saved to localStorage and are remembered upon leaving and revisiting 
 
 ### Future Additions
 - Add styling to timer circle to animate it while counting down
