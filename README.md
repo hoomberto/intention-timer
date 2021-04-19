@@ -6,6 +6,7 @@ Turing 2103 FE Week 4 Group Project
 * [Links](#Links)
 * [Features](#Features)
 * [Future Additions](#Future-Additions)
+* [Contributors](#Contributors)
 * [Languages](#Languages)
 
 ## Introduction
@@ -21,6 +22,12 @@ This is an interactive website that is meant to demonstrate an understanding of 
 - Add error handling for certain user inputs (i.e. 99 and 00)
 - Pausing the timer
 - Incorporating a login page that accesses the Tumblr API 
+
+## Contributors
+[Ashley O'Brien](https://github.com/AshleyOh-bit)
+[Bobby Vasquez](https://github.com/hoomberto/)
+[Taylor Galloway](https://github.com/tylrs)
+
 
 ## Languages
 JavaScript  
