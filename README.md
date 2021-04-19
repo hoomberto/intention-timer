@@ -16,6 +16,8 @@ This is an interactive website that is meant to demonstrate an understanding of 
 - To view the project in action, [click here!](https://hoomberto.github.io/intention-timer/)
 
 ## Features
+- Users can select a category, set an intention, enter minutes, seconds value, and have a timer run corresponding to these inputs
+
 
 ### Future Additions
 - Add styling to timer circle to animate it while counting down
