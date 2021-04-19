@@ -1,3 +1,5 @@
+/* General */
+
 html {
     font-family: 'Montserrat', sans-serif;
   }
@@ -19,6 +21,32 @@ img {
   width: 20px;
 }
 
+button {
+  width: 180px;
+  height: 35px;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 0;
+  outline: 0;
+  color: #2B2733;
+  cursor: pointer;
+}
+
+h1 {
+  color: #CBC9CF;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+h2 {
+  color: #CBC9CF;
+  margin-bottom: 2%;
+  margin-top: 0;
+}
+
+/* New Activity */
 form {
   display: flex;
   flex-direction: column;
@@ -38,24 +66,66 @@ form > h3 {
   color: color: #CBC9CF;
 }
 
+h3, p {
+  margin: 0;
+}
+
+h3, label {
+  margin-bottom: 3%;
+  font-weight: 400;
+  color: #CBC9CF;
+}
+
+input {
+  background-color: #46424D;
+  border: 0px;
+  border-bottom: #FFF solid 1px;
+  margin-top: 3%;
+  outline: 0;
+  color: #CBC9CF;
+}
+
 .button-container{
   display: flex;
   justify-content: flex-end;
 
 }
 
-button {
-  width: 180px;
-  height: 35px;
-  position: relative;
-  text-transform: uppercase;
-  border-radius: 4px;
-  border: 0;
-  outline: 0;
-  color: #2B2733;
-  cursor: pointer;
+.new-activity {
+  grid-column: 1;
+  padding: 33px;
+  margin-right: 2px;
+  background-color: #2B2733;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-weight: 300;
 }
 
+.categories-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.minutes-seconds-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.minutes-container, .seconds-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 30%;
+}
+
+.intention-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Current Activity */
 .start-timer {
   width: 290px;
   height: 290px;
@@ -72,17 +142,6 @@ button {
   cursor: pointer;
 }
 
-.new-activity {
-  grid-column: 1;
-  padding: 33px;
-  margin-right: 2px;
-  background-color: #2B2733;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  font-weight: 300;
-}
-
 .current-activity,
 .completed-activity {
   grid-column: 1;
@@ -95,6 +154,7 @@ button {
   font-weight: 300;
 }
 
+/* Past Activity */
 .past-activity {
   grid-column: 2;
   background-color: #2B2733;
@@ -123,6 +183,7 @@ button {
   border-radius: 4px;
   color: #CBC9CF;
   margin-bottom: 4%;
+  overflow: hidden;
 }
 
 .past-activity-card * {
@@ -191,62 +252,6 @@ button {
 
 .no-activities-text p {
   margin-top: 2%;
-  color: #CBC9CF;
-}
-
-.categories-icons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.minutes-seconds-section {
-  display: flex;
-  justify-content: space-between;
-}
-
-.minutes-container, .seconds-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 30%;
-
-}
-
-.intention-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-h1 {
-  color: #CBC9CF;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 20px;
-}
-
-h2 {
-  color: #CBC9CF;
-  margin-bottom: 2%;
-  margin-top: 0;
-}
-
-h3, p {
-  margin: 0;
-}
-
-h3, label {
-  margin-bottom: 3%;
-  font-weight: 400;
-  color: #CBC9CF;
-}
-
-input {
-  background-color: #46424D;
-  border: 0px;
-  border-bottom: #FFF solid 1px;
-  margin-top: 3%;
-  outline: 0;
   color: #CBC9CF;
 }
 
@@ -322,6 +327,7 @@ input {
   font-weight: 700;
   font-size: 600%;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
 .log-activity {
