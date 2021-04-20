@@ -41,6 +41,8 @@ startActivityBtn.addEventListener("click", validateForm);
 iconSection.addEventListener("click", facilitateIconChange);
 logActivityButton.addEventListener("click", logActivity);
 createNewActivityButton.addEventListener("click", displayNewActivity);
+secondsInput.addEventListener("keydown", checkDigits);
+minutesInput.addEventListener("keydown", checkDigits);
 
 var currentActivity = {};
 
@@ -58,6 +60,17 @@ function checkLocalStorage() {
 }
 
 //form validation
+function checkDigits(event) {
+  var validCodes = [39, 37, 8, 9, 91, 13, 38, 40];
+
+  if ((event.keyCode >= 48 && event.keyCode <= 57) || (validCodes.includes(event.keyCode))) {
+    hideError(2)
+    hideError(3)
+    return
+  }
+  event.preventDefault();
+  (event.target.id === "minutes") ? addError(2) : addError(3);
+}
 
 function displayIcons(icon1, icon2, icon3) {
   icon1.classList.remove("hidden");
