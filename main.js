@@ -63,14 +63,13 @@ function checkLocalStorage() {
 function checkDigits(event) {
   var validCodes = [39, 37, 8, 9, 91, 13, 38, 40];
 
-  if (event.keyCode >= 48 && event.keyCode <= 57 || validCodes.includes(event.keyCode)) {
+  if ((event.keyCode >= 48 && event.keyCode <= 57) || (validCodes.includes(event.keyCode))) {
     hideError(2)
     hideError(3)
     return
   }
   event.preventDefault();
-  (event.target.id === "minutes") ? addError(2) : addError(3)
-  return
+  (event.target.id === "minutes") ? addError(2) : addError(3);
 }
 
 function displayIcons(icon1, icon2, icon3) {
