@@ -46,7 +46,7 @@ Form cannot be submitted until all fields are populated and a category is select
 ## Contributors
 [Ashley O'Brien](https://github.com/AshleyOh-bit)<br>
 [Taylor Galloway](https://github.com/tylrs)<br>
-[Bobby Vasquez](https://github.com/hoomberto/)
+[Bobby Vasquez](https://github.com/hoomberto/)<br>
 [Nicole Latifi](https://github.com/NicoleLatifi) (Code Review)
 
 ## Languages
